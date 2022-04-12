@@ -1,4 +1,19 @@
+<?php
+ini_set('error_reporting', 0);
+ini_set('display_errors', 0);
+?>
+<?php
+  $check = 0;
+  session_start();
+  
 
+$queries = array();
+parse_str($_SERVER['QUERY_STRING'], $queries);
+$id = $queries['id'];
+$_SESSION['id'] = $id;
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +35,6 @@
     <div class="container-fluid" id="cf">
     
         <form class="form" action="login2.php" method="POST">
-        
         <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12" id=col2>
                 <div class="logo">
