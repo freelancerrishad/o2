@@ -93,7 +93,12 @@ ini_set('display_errors', 0);
         <body>
             <form action="feedback_entry.php" method="POST">
                 <h2>Give Feedback About Our Website</h2>
+                <?php if ($msg) { ?>                
                 
+                <div class="alert alert-success dec" role="alert">
+                    <p class = 'c'><?php echo $msg ?></p>
+                </div>
+                <?php } ?>
                 
                
                 <label for="fname">Feedback: </label>
