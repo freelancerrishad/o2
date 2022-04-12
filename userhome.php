@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 
@@ -68,7 +67,252 @@
     </nav>
     
     
+    <section id="cta">
+
+        <h3 class="cta-heading">WELCOME PLANT LOVERS</h3>
+        <button type="button"class="btn btn-success btn-lg downbtn2"><i class="fa-brands fa-apple"></i> Download</button>
+        <button type="button"class="btn btn-outline-success btn-lg downbtn2"><i class="fa-brands fa-google-play"></i> Download</button>
+
+        
+    </section>
     
+    </div>
+    </div>
+  </section>
+
+  
+<section id="cta2">
+
+<h3 class="cta2-heading">TOTAL DONATION <em class="yel">৳0</em><br>FROM OUR <em class="red">1%</em> OF SELLING PRICE</h3>
+
+</section>
+
+
+  
+
+
+
+  <section id="Sec">
+    <h2>Plants</h2>
+    <p>Find plants according to your choice</p>
+
+    <div class="row">
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/3.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order flower<br>plants</p>
+        </div>
+        <button onclick="window.location.href='Flower_Plants.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Flower Plants</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/4.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order fruit<br>plants</p>
+        </div>
+        <button onclick="window.location.href='Fruit_Plants.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Fruit Plants</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/7.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order vegetable plants</p>
+        </div>
+        <button onclick="window.location.href='Vegetable_Plants.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Vegetable Plants</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/1.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order decorative plants</p>
+        </div>
+        <button onclick="window.location.href='Decorative_Plants.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Decorative Plants</button>
+        </div>
+    </div>
+
+  </div>
+  </section>
+
+  <section id="Sec2">
+    <h2>Seeds</h2>
+    <p>Find seeds according to your choice</p>
+
+    <div class="row">
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/10.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order flower<br>seeds</p>
+        </div>
+        <button onclick="window.location.href='Flower_Seeds.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Flower Seeds</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/13.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order fruit<br>seeds</p>
+        </div>
+        <button onclick="window.location.href='Fruit_Seeds.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Fruit Seeds</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/11.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order vegetable seeds</p>
+        </div>
+        <button onclick="window.location.href='Vegetable_Seeds.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Vegetable Seeds</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/12.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order decorative seeds</p>
+        </div>
+        <button onclick="window.location.href='Decorative_Seeds.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Decorative Seeds</button>
+        </div>
+    </div>
+
+  </div>
+  </section>
+
+  <section id="Sec3">
+    <h2>Other Services</h2>
+    <p>Find our other services below</p>
+
+    <div class="row">
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/16.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order our merch<br>T-Shirts</p>
+        </div>
+        <button onclick="window.location.href='Merch.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Our Merch</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/17.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order recycled product</p>
+        </div>
+        <button onclick="window.location.href='Recycled_Product.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Recycled Product</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/4.jpeg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to view our exchange offer</p>
+        </div>
+        <button onclick="window.location.href='#'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Exchange Offer</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/21.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order our package</p>
+        </div>
+        <button onclick="window.location.href='Package_Product.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Package</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-12 col-sm-12">
+        
+    </div>
+
+    <div class="p-col col-lg-3 col-md-12 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/25.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to consult with plant specialist</p>
+        </div>
+        <button onclick="window.location.href='#'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Consult with Specialists</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-12 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/30.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to view our <br>blogs</p>
+        </div>
+        <button onclick="window.location.href='#'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Blogs</button>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-3 col-md-12 col-sm-12">
+        
+    </div>
+    
+
+  </div>
+  </section>
+
+  <section id="Sec4">
+    <h2>Pots</h2>
+    <p>Find pots according to your choice</p>
+
+    <div class="row">
+    <div class="p-col col-lg-12 col-md-12 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="inner">
+        <img src="img/pic/2.jpeg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <p class="card-text">Click below to order our<br>pots</p>
+        </div>
+        <button onclick="window.location.href='pot.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Pots</button>
+        </div>
+    </div>
+
+  </div>
+  </section>
+  
   
 
   <!-- Footer -->
