@@ -12,6 +12,19 @@ parse_str($_SERVER['QUERY_STRING'], $queries);
 $id = $queries['id'];
 $_SESSION['id'] = $id;
 
+  $msg = $_SESSION['success'];
+  if($msg == null){
+    $msg = $_SESSION['wrong'];
+    $_SESSION['wrong'] = null;
+  }
+  $_SESSION['success'] = null;
+
+  if ($msg == 'Wrong Email or Password') {
+    $check = 1;
+  }
+  if ($msg == 'Account created successfully') {
+    $check = 2;
+  }
 
 ?>
 <!DOCTYPE html>
@@ -35,6 +48,30 @@ $_SESSION['id'] = $id;
     <div class="container-fluid" id="cf">
     
         <form class="form" action="login2.php" method="POST">
+        <?php if ($msg) { ?>                
+            <?php if ($check == 1){ ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+            <?php } ?>
+            <?php if ($check == 2) { ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+            <?php } ?>
+
+
+            <?php } ?>
         <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12" id=col2>
                 <div class="logo">
