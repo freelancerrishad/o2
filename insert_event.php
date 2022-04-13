@@ -17,6 +17,7 @@
         }*/
           
         // closing connection
+        $_SESSION['add_event'] = "Successfully Added in the Database";
         header('location:event.php');
         $con->close();
         

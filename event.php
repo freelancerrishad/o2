@@ -46,7 +46,16 @@ ini_set('display_errors', 0);
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
               <div id="log-title">
                 <h3 class="cta-heading"><i class="fa-solid fa-calendar"></i> Add Event</h3>
-              
+                <?php if ($msg) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
               </div>
               <div class="form-group">
                 <label for="name">Event Name</label>
