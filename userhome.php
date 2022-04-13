@@ -1,3 +1,25 @@
+<?php
+  session_start();
+  $email = $_SESSION['email'];
+  if($email==null){
+    header('location:login.php?id=home');
+  }
+?>
+<?php
+        include '_dbconnect.php';
+        $q =  "SELECT `id`, `name`, `details`, `e_time`, `location`, `img` FROM `event`;";
+        $run = mysqli_query($con, $q);
+        if(mysqli_num_rows($run)>0){
+          while($row = $run->fetch_assoc()){
+          $first_name = $row['name'];
+          $first_det = $row['details'];
+          $first_time = $row['e_time'];
+          $first_loc = $row['location'];
+          $first_img = $row['img'];
+          break;
+          }
+        }       
+?>
 
 <!DOCTYPE html>
 <html>
@@ -87,7 +109,55 @@
 
 </section>
 
-
+<section id="event">
+<h2>Events</h2>
+<p>Find our upcoming events where we donate free plants</p>
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" interval= "1000">
+  
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  
+  
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="event img/<?php echo $first_img; ?>" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><?php echo $first_name; ?></h5>
+        <p><i class="fa-solid fa-calendar"></i> <?php echo date('h:i:s a, m/d/Y', strtotime($first_time));?> &nbsp <i class="fa-solid fa-location-dot"></i> <?php echo $first_loc; ?><br><br><?php echo $first_det; ?></p>
+        <button type="submit" class="CA btn btn-lg btn-block btn btn-light"><i class="fa-solid fa-thumbs-up"></i> Going</button>
+      </div>
+    </div>
+    <?php
+    if(mysqli_num_rows($run)>0){
+    while($row = $run->fetch_assoc()){
+      
+      
+    ?>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="event img/<?php echo $row['img'];?>" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><?php echo $row['name'];?></h5>
+        <p><i class="fa-solid fa-calendar"></i> <?php echo date('h:i:s a, m/d/Y', strtotime($row['e_time']));?> &nbsp <i class="fa-solid fa-location-dot"></i> <?php echo $row['location'];?><br><br><?php echo $row['details'];?></p>
+        <button type="submit" class="CA btn btn-lg btn-block btn btn-light"><i class="fa-solid fa-thumbs-up"></i> Going</button>
+      </div>
+    </div>
+    <?php
+      
+      
+    }
+  }
+  ?>
+  </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</section>
   
 
 
