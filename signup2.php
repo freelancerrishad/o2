@@ -21,19 +21,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $sql = "INSERT INTO `user` (`email`, `name`, `address`, `p_number`, `password`, `role`, `premium`, `gender`)
          VALUES ('$email', '$name', '$add', '$p_num', '$password', 'user', 'not premium', '$gender');";
             $result = mysqli_query($con, $sql);
-          
+            $_SESSION['success'] = "Account created successfully";
             header("Location:signup.php");
             exit();
         }
         else{
-           
+            $_SESSION['not_success'] = "Email already used before";
         header("Location:signup.php");
          exit();   
         }
              
     }
     
-        
+        $_SESSION['pasword'] = "Password did not matched";
         header("Location:signup.php");
          exit(); 
     
