@@ -1,4 +1,18 @@
-
+<?php
+ini_set('error_reporting', 0);
+ini_set('display_errors', 0);
+?>
+<?php
+  session_start();
+  $admin = $_SESSION['admin'];
+  if($admin==null){
+    header('location:login.php?id=home');
+  }
+?>
+<?php 
+    $msg = $_SESSION['add_event'];
+    $_SESSION['add_event'] = null;
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +33,10 @@
 </head>
 
 <body>
-
+<?php 
+    include('header5.html');
+    ?>   
+    
 
 
 <section id="cta">
@@ -29,7 +46,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
               <div id="log-title">
                 <h3 class="cta-heading"><i class="fa-solid fa-calendar"></i> Add Event</h3>
-                
+              
               </div>
               <div class="form-group">
                 <label for="name">Event Name</label>
