@@ -101,7 +101,11 @@ ini_set('display_errors', 0);
         <body>
             <form action="rqst_product_entry.php" method="POST">
                 <h2>Please Enter the Details of Your Plant Request</h2>
-                
+                <?php if ($msg) { ?>                                  
+                        <div class="alert alert-success dec" role="alert">
+                            <p class="c"><?php echo $msg ?></p>
+                        </div>
+                <?php } ?>
                 <input type=hidden name=email value='<?php echo $email; ?>'>
                 <input type=hidden name=name value='<?php echo $name; ?>'>
                
