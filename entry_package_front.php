@@ -1,4 +1,21 @@
+<?php
+ini_set('error_reporting', 0);
+ini_set('display_errors', 0);
+?>
+<?php
+  session_start();
+  $admin = $_SESSION['admin'];
+  if($admin==null){
+    header('location:login.php?id=home');
+  }
+?>
+<?php 
 
+    
+    $msg = $_SESSION['add_package'];
+    $_SESSION['add_package'] = null;
+    
+?>
 <!DOCTYPE html>
 <html>
 
@@ -68,3 +85,23 @@
           </div>
         </form>
 </section>
+       
+    <footer id="footer">
+    <a id="icon-fb" href="#">
+      <i class="s-icons fa-brands fa-facebook"></i>
+    </a>
+    <a id="icon-insta" href="#">
+      <i class="s-icons fa-brands fa-instagram"></i>
+    </a>
+    <a id="icon-mail" href="mailto:#">
+      <i class="s-icons fa-solid fa-envelope" href=""></i>
+    </a>
+    
+    
+    
+    <p>© Copyright ProjectO2</p>
+    </footer>
+    <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
