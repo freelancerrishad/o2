@@ -28,7 +28,7 @@
 ?>    
 
 <section id="cta">
-        
+        <form class="form" action="package_Insert.php" method="POST">
           <div class="row">
 
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
@@ -66,5 +66,5 @@
               <button type="submit" class="btn btn-lg btn-block btn btn-success">Submit</button>
             </div>
           </div>
-        
+        </form>
 </section>
