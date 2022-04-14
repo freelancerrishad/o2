@@ -6,7 +6,18 @@
   }
 ?>
 <?php
-     include '_dbconnect.php';   
+        include '_dbconnect.php';
+        $q =  "SELECT name,id,email,feedback,upload_time  FROM feedback";
+        $run = mysqli_query($con, $q);
+        $html = "";
+        if(mysqli_num_rows($run)>0){
+            while($row = $run->fetch_assoc()){
+                $html = $html. "<tr><td>" . $row["feedback"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["upload_time"] . "</td><td>". i class="fa-solid fa-trash-can"></i> Delete</a>' ."</td></tr>";
+               
+            }
+          
+          }
+        
 ?>
 
 <!DOCTYPE html>
@@ -91,4 +102,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-
