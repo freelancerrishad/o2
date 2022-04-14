@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  $admin = $_SESSION['admin'];
+  if($admin==null){
+    header('location:login.php?id=home');
+  }
+?>
 <!DOCTYPE html>
 <html>
 
