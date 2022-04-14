@@ -44,7 +44,7 @@
         <a class="nav-link" href="view_product_requests.php"><i class="fa-solid fa-list-check"></i> Requested Plants</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=""><i class ="fa-brands fa-rocketchat"></i> Live Chat</a>
+        <a class="nav-link" href="https://dashboard.tawk.to/#/dashboard/620fecc01ffac05b1d7a99a7"><i class ="fa-brands fa-rocketchat"></i> Live Chat</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="create_admin.php"><i class="fa-solid fa-address-book"></i> Create New Admin</a>
