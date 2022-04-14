@@ -44,7 +44,7 @@
         <a class="nav-link" href="view_product_requests.php"><i class="fa-solid fa-list-check"></i> Requested Plants</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="https://dashboard.tawk.to/#/dashboard/620fecc01ffac05b1d7a99a7"><i class ="fa-brands fa-rocketchat"></i> Live Chat</a>
+        <a class="nav-link" href=""><i class ="fa-brands fa-rocketchat"></i> Live Chat</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="create_admin.php"><i class="fa-solid fa-address-book"></i> Create New Admin</a>
@@ -67,7 +67,88 @@
     
   </section>
 
-  
+  <section id="Sec">
+    
+
+    <div class="row">
+
+    <div class="p-col col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-brands fa-pagelines"></i> Product Management</h5>
+        <a href="addproduct.php" class="btn btn-lg btn-block btn btn-success downbtn2">Add Product</a>
+        <a href="#" class="btn btn-lg btn-block btn btn-success downbtn2">Update Product</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-4 col-md-6 col-sm-12">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-box"></i> Package Management</h5>
+        <a href="entry_package_front.php" class="btn btn-lg btn-block btn btn-info downbtn2">Add Package</a>
+        <a href="#" class="btn btn-lg btn-block btn btn-info downbtn2">Update Package</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-calendar"></i> Event Management</h5>
+        <a href="event.php" class="btn btn-lg btn-block btn btn-dark downbtn2">Add Event</a>
+        <a href="#" class="btn btn-lg btn-block btn btn-dark downbtn2">Update Event</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-clover"></i> Blog Management</h5>
+        <a href="#" class="btn btn-lg btn-block btn btn-secondary downbtn2">Add Blog</a>
+        <a href="#" class="btn btn-lg btn-block btn btn-secondary downbtn2">Update Blog</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="p-col col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-person"></i> Consultant Management</h5>
+        <a href="#" class="btn btn-lg btn-block btn btn-warning downbtn2">Add Consultant</a>
+        <a href="#" class="btn btn-lg btn-block btn btn-warning downbtn2">Update Consultant</a>
+        </div>
+        </div>
+    </div>
+    <div class="p-col col-lg-4 col-md-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-user-group"></i> Customer Management</h5>
+        <a href="#" class="btn btn-lg btn-block btn btn-danger downbtn2">Manage Order</a>
+        <a href="#" class="btn btn-lg btn-block btn btn-danger downbtn2">Manange Exchange Offer</a>
+        </div>
+        </div>
+    </div>
+    <div class="p-col col-lg-4 col-md-12 col-sm-12">
+        
+    </div>
+    <div class="p-col col-lg-4 col-md-12 col-sm-12">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-star"></i><br>Premium Account Authentication</h5>
+        <a href="#" class="btn btn-lg btn-block btn btn-primary downbtn2">Authenticate</a>
+        </div>
+        </div>
+    </div>
+    <div class="p-col col-lg-4 col-md-12 col-sm-12">
+        
+    </div>
+    
+
+  </div>
+
+  </section>
 
 
   
