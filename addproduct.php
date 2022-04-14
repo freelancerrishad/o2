@@ -32,16 +32,7 @@ include('header5.html');
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
               <div id="log-title">
                 <h3 class="cta-heading"><i class="fa-brands fa-pagelines"></i> Add Product</h3>
-                <?php if ($msg) { ?>                
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-success" role="alert">
-                            <?php echo $msg ?>
-                        </div>
-                    </div>
-
-                </div>
-              <?php } ?>
+                
               </div>
               <div class="form-group">
                 <label for="name">Product Name</label>
