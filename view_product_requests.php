@@ -66,3 +66,37 @@
         </thead>
             
         <tbody>
+            
+            <?php
+                    
+                    
+
+                        $conn=new PDO('mysql:host=localhost:3306;dbname=project_o2;','root','');
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                        //database code execute, default : warning generate
+                        $sqlquerystring="SELECT id, u_name, u_email, p_name, description, time FROM r_product ";
+                        $returnobj=$conn->query($sqlquerystring);
+
+                        
+                    ///user data found
+                        $tabledata=$returnobj->fetchAll();
+
+                        foreach($tabledata AS $row){
+                         ?>
+
+                         <tr>
+                         <td><?php echo $row['p_name']; ?></td>
+                            <td><?php echo $row['u_name']; ?></td>
+                            <td><?php echo $row['u_email']; ?></td>
+                            <td><?php echo $row['description']; ?></td>
+                            <td><?php echo $row['time']; ?></td>
+                            <td><?php echo '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>'; ?></td>
+                        </tr>
+                        <?php
+                    }
+    ?>
+            </tbody>
+            
+        
+        </table>
