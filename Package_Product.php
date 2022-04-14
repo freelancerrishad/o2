@@ -1,4 +1,11 @@
 <?php
+  session_start();
+  $email = $_SESSION['email'];
+  if($email==null){
+    header('location:login.php?id=home');
+  }
+?>
+<?php
 include '_dbconnect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $search = $_POST['search'];
@@ -105,4 +112,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
         
         </table>
+        
+    <footer id="footer">
+    <a id="icon-fb" href="#">
+      <i class="s-icons fa-brands fa-facebook"></i>
+    </a>
+    <a id="icon-insta" href="#">
+      <i class="s-icons fa-brands fa-instagram"></i>
+    </a>
+    <a id="icon-mail" href="mailto:#">
+      <i class="s-icons fa-solid fa-envelope" href=""></i>
+    </a>
     
+    
+    <p>© Copyright ProjectO2</p>
+
+   </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#example').DataTable();
+        } );
+    </script>
+    <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
