@@ -6,6 +6,23 @@
   }
 ?>
 <?php
+include '_dbconnect.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $search = $_POST['search'];
+  $cat = $_POST['cat'];
+
+  $q =  "SELECT name,id,email,feedback,upload_time  FROM feedback WHERE `$cat` LIKE '%$search%';";
+  $run = mysqli_query($con, $q);
+  $html = "";
+  
+  if(mysqli_num_rows($run)>0){
+      while($row = $run->fetch_assoc()){
+        $html = $html. "<tr><td>" . $row["feedback"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["upload_time"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="delete_feedback.php?id=' . $row["id"] .'"><i class="fa-solid fa-trash-can"></i> Delete</a>' ."</td></tr>";
+         
+      }
+  }  
+}
+   else{
         include '_dbconnect.php';
         $q =  "SELECT name,id,email,feedback,upload_time  FROM feedback";
         $run = mysqli_query($con, $q);
@@ -17,6 +34,7 @@
             }
           
           }
+        }
         
 ?>
 
@@ -50,7 +68,26 @@
     <h1 class = "cta-heading"><i class="fa-solid fa-comment"></i> View Feedback</h1>
     </div>
     
-
+    <form class="form" action="view_feedback.php" method="POST">
+     <div class="form-group" id="pad">
+        <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
+     </div>
+     
+     
+     <div class="form-group" id="pad2">
+            <select class="form-control" name="cat">
+            <option value="feedback">Feedback</option>
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="upload_time">Time</option>
+        </select>
+    </div>
+    
+     <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
+     <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+     <button onclick="window.location.href='view_feedback.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     </div>
+    </form>
     
     
     

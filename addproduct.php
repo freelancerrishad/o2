@@ -81,7 +81,7 @@ include('header5.html');
                     <option value="Fruit Seeds">Fruit Seeds</option>
                     <option value="Vegetable Seeds">Vegetable Seeds</option>
                     <option value="Decorative Seeds">Decorative Seeds</option>
-                    <option value="Merch">Pots</option>
+                    <option value="Pots">Pots</option>
                     <option value="Merch">Merch</option>
                     <option value="Recycled Product">Recycled Product</option>
                   </select>

@@ -1,9 +1,44 @@
 <?php
+
+use function PHPSTORM_META\elementType;
+
   session_start();
   $admin = $_SESSION['admin'];
   if($admin==null){
     header('location:login.php?id=home');
   }
+  include '_dbconnect.php';
+  $flag = 0;
+  $flag1 = 0;
+  $html = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $search = $_POST['search'];
+  $cat = $_POST['cat'];
+
+  $q =  "SELECT `id`,`u_name`, `u_email`, `p_name`, `description`, `time` FROM `r_product` WHERE  `$cat` LIKE '%$search%';";
+  $run = mysqli_query($con, $q);
+  
+
+  
+  if(mysqli_num_rows($run)>0){
+      while($row = $run->fetch_assoc()){
+          $html = $html. "<tr><td>" . $row["p_name"] ."</td>
+          <td>". $row["u_name"] . "</td>
+          <td>". $row["u_email"] . "</td>
+          <td>". $row["description"] . "</td>
+          <td>". $row["time"] . "</td>
+          <td>". '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>' .
+          "</td></tr>";
+          $flag = 1;
+        
+      }
+    }
+  }
+      else{
+        $flag1 = 1;
+      }
+      
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +70,7 @@
     <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Plant Request</h1>
     </div>
     
-    
+    <form class="form" action="view_product_requests.php" method="POST">
      <div class="form-group" id="pad">
         <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
      </div>
@@ -43,18 +78,20 @@
      
      <div class="form-group" id="pad2">
             <select class="form-control" name="cat">
-            <option value="Plant Name">Plant Name</option>
-            <option value="Plant Name">Username</option>
-            <option value="User Email">User Email</option>
-            <option value="Description">Description</option>
-            <option value="Time">Time</option>
+            <option value="p_name">Plant Name</option>
+            <option value="u_name">Username</option>
+            <option value="u_email">User Email</option>
+            <option value="description">Description</option>
+            <option value="time">Time</option>
            
         </select>
     </div>
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+     <button onclick="window.location.href='view_product_requests.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
      </div>
+    </form>
     
     
     
@@ -72,11 +109,17 @@
             </tr>
         </thead>
             
-        <tbody>  
-            <?php
+       
+        <tbody>
+        <?php
                     
-                    
-
+                    if($flag = 1){
+                      $flag = 0;
+                      echo $html;
+                
+                    }
+                    if($flag1 == 1){
+                      $flag1 = 0;
                         $conn=new PDO('mysql:host=localhost:3306;dbname=project_o2;','root','');
                         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -101,13 +144,15 @@
                         </tr>
                         <?php
                     }
+                  }
     ?>
             </tbody>
             
+            
         
         </table>
-        
-        <footer id="footer">
+    
+    <footer id="footer">
     <a id="icon-fb" href="#">
       <i class="s-icons fa-brands fa-facebook"></i>
     </a>
