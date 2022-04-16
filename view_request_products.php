@@ -11,9 +11,32 @@ use function PHPSTORM_META\elementType;
   $flag = 0;
   $flag1 = 0;
   $html = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $search = $_POST['search'];
+  $cat = $_POST['cat'];
 
+  $q =  "SELECT `id`,`u_name`, `u_email`, `p_name`, `description`, `time` FROM `r_product` WHERE  `$cat` LIKE '%$search%';";
+  $run = mysqli_query($con, $q);
+  
+
+  
+  if(mysqli_num_rows($run)>0){
+      while($row = $run->fetch_assoc()){
+          $html = $html. "<tr><td>" . $row["p_name"] ."</td>
+          <td>". $row["u_name"] . "</td>
+          <td>". $row["u_email"] . "</td>
+          <td>". $row["description"] . "</td>
+          <td>". $row["time"] . "</td>
+          <td>". '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>' .
+          "</td></tr>";
+          $flag = 1;
+        
+      }
+    }
+  }
+      else{
         $flag1 = 1;
-      
+      }
       
     
 ?>
