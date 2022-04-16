@@ -8,7 +8,22 @@
 <?php
 
 include '_dbconnect.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $search = $_POST['search'];
+  $cat = $_POST['cat'];
 
+  $q =  "SELECT `id`,`name`, `img`, `price`, `type`, `stock`, `details` FROM `product` WHERE `type`='Decorative Seeds' and `$cat` LIKE '%$search%';";
+  $run = mysqli_query($con, $q);
+  $html = "";
+  
+  if(mysqli_num_rows($run)>0){
+      while($row = $run->fetch_assoc()){
+          $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-info" href="mycart.php?id=' . $row["id"] .'"><i class="fa-solid fa-bag-shopping"></i> Add To Cart</a>' ."</td></tr>";
+         
+      }
+  }  
+}
+   else{
         $q =  "SELECT `id`,`name`, `img`, `price`, `type`, `stock`, `details` FROM `product` WHERE `type`='Decorative Seeds';";
         $run = mysqli_query($con, $q);
         $html = "";
@@ -19,7 +34,7 @@ include '_dbconnect.php';
             }
           
         }
-      
+      }
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +66,8 @@ include '_dbconnect.php';
     <div id="cta">
     <h1 class = "cta-heading"><i class="fa-solid fa-seedling"></i> Decorative Seeds</h1>
     </div>
+    
+    
     <form class="form" action="Decorative_Seeds.php" method="POST">
      <div class="form-group" id="pad">
         <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
