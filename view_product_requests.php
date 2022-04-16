@@ -36,7 +36,28 @@
     </div>
     
     
+      <form class="form" action="view_product_requests.php" method="POST">
+     <div class="form-group" id="pad">
+        <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
+     </div>
      
+     
+     <div class="form-group" id="pad2">
+            <select class="form-control" name="cat">
+            <option value="p_name">Plant Name</option>
+            <option value="u_name">Username</option>
+            <option value="u_email">User Email</option>
+            <option value="description">Description</option>
+            <option value="time">Time</option>
+           
+        </select>
+    </div>
+    
+     <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
+     <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+     <button onclick="window.location.href='view_product_requests.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     </div>
+    </form>
     
     
     
