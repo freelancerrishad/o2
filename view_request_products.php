@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\elementType;
 
   session_start();
   $admin = $_SESSION['admin'];
@@ -179,7 +178,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-<<<<<<< HEAD
-=======
 
->>>>>>> c3f9f178ef1bcf56864b698ec39aa00a594e6f48

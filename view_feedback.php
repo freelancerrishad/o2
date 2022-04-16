@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include('header4.html');
     ?>
 
-    
+    <div id = "main">
     <div id="cta">
     <h1 class = "cta-heading"><i class="fa-solid fa-comment"></i> View Feedback</h1>
     </div>
@@ -110,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
             </tbody>
             
+        </div>
         </table>
     
     <footer id="footer">
