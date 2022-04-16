@@ -36,26 +36,7 @@
     </div>
     
     
-     <div class="form-group" id="pad">
-        <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
-     </div>
      
-     
-     <div class="form-group" id="pad2">
-            <select class="form-control" name="cat">
-            <option value="Plant Name">Plant Name</option>
-            <option value="Plant Name">Username</option>
-            <option value="User Email">User Email</option>
-            <option value="Description">Description</option>
-            <option value="Time">Time</option>
-           
-        </select>
-    </div>
-    
-     <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
-     <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-     </div>
-    
     
     
     
