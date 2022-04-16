@@ -50,7 +50,26 @@
     <h1 class = "cta-heading"><i class="fa-solid fa-comment"></i> View Feedback</h1>
     </div>
     
-
+<form class="form" action="view_feedback.php" method="POST">
+     <div class="form-group" id="pad">
+        <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
+     </div>
+     
+     
+     <div class="form-group" id="pad2">
+            <select class="form-control" name="cat">
+            <option value="feedback">Feedback</option>
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="upload_time">Time</option>
+        </select>
+    </div>
+    
+     <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
+     <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+     <button onclick="window.location.href='view_feedback.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     </div>
+    </form>
     
     
     
