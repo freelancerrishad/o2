@@ -15,18 +15,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $search = $_POST['search'];
   $cat = $_POST['cat'];
 
-  $q =  "SELECT `id`,`u_name`, `u_email`, `p_name`, `description`, `time` FROM `r_product` WHERE  `$cat` LIKE '%$search%';";
+  $q =  "SELECT `id`, `email`, `address`, `description`, `status` FROM `recycle` WHERE  `$cat` LIKE '%$search%';";
   $run = mysqli_query($con, $q);
   
 
   
   if(mysqli_num_rows($run)>0){
       while($row = $run->fetch_assoc()){
-          $html = $html. "<tr><td>" . $row["p_name"] ."</td>
-          <td>". $row["u_name"] . "</td>
-          <td>". $row["u_email"] . "</td>
+          $html = $html. "<tr><td>" . $row["id"] ."</td>
+          <td>". $row["email"] . "</td>
+          <td>". $row["address"] . "</td>
           <td>". $row["description"] . "</td>
-          <td>". $row["time"] . "</td>
+          <td>". $row["status"] . "</td>
           <td>". '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>' .
           "</td></tr>";
           $flag = 1;
@@ -36,31 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
       else{
         $flag1 = 1;
-      }
-
-      include '_dbconnect.php';
-      $sql = "SELECT *  FROM req_qs";
-      
-      $result = mysqli_query($con, $sql);
-      $num1 = mysqli_num_rows($result);
-      $html = "";
-      if ($num1 > 0) {
-          while ($row = $result->fetch_assoc()) {
-      
-              $html = $html  . "<tr>" .
-                  
-                  '<td><input hidden type="text" name="id" placeholder="Enter Doctor ID" value="' . $row["S_no"] . '">' . $row["User_name"] . " </td>" .
-                  "<td>" . $row["user_email"] . "</td>" .
-                  "<td>" . $row["qs"] . "</td> " .
-                 
-                  '<td>' .
-                  '<a class="btn btn-primary" href="/EduShare/req_qs_accept.php?id=' . $row["S_no"] . '">Accept</a> ' .
-                  '<a class="btn btn-danger" href="/EduShare/req_qs_delete.php?id=' . $row["S_no"] . '">Delete</a> ' .
-                  '</td>' .
-                 
-                  '</form>' .
-                  "</tr>";
-          }
       }
       
     
@@ -73,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>View Plant Request</title>
+    <title>Exchange Requests</title>
     <link rel = "icon" href="img/fav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
@@ -92,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     <div id="cta">
-    <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Plant Request</h1>
+    <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Recycle Request</h1>
     </div>
     
-    <form class="form" action="view_product_requests.php" method="POST">
+    <form class="form" action="manage_recycle.php" method="POST">
      <div class="form-group" id="pad">
         <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
      </div>
@@ -103,40 +78,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      
      <div class="form-group" id="pad2">
             <select class="form-control" name="cat">
-            <option value="p_name">Plant Name</option>
-            <option value="u_name">Username</option>
-            <option value="u_email">User Email</option>
+            <option value="email">User Email</option>
+            <option value="address">Address</option>
             <option value="description">Description</option>
-            <option value="time">Time</option>
+            <option value="status">Status</option>
            
         </select>
     </div>
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-     <button onclick="window.location.href='view_product_requests.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <button onclick="window.location.href='manage_recycle.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
      </div>
     </form>
     
-    
-    
-    
-        <table id="example" class="table table-light table-hover table-bordered pad" style="width:100%">
+           <table id="example" class="table table-light table-hover table-bordered pad" style="width:100%">
         
         <thead>
             <tr>
-                        <th>Plant Name</th>
-                        <th>Username</th>
-                        <th>User Email</th>
-                        <th>Description</th>
-                        <th>Time</th>
-                        <th>Actions</th>
+                        
+                <th>User Email</th>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
             </tr>
         </thead>
             
        
         <tbody>
-        <?php
+            
+             <?php
                     
                     if($flag = 1){
                       $flag = 0;
@@ -149,35 +121,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                         //database code execute, default : warning generate
-                        $sqlquerystring="SELECT id, u_name, u_email, p_name, description, time FROM r_product ";
+                        $sqlquerystring="SELECT id, email, address, description, status FROM recycle ";
                         $returnobj=$conn->query($sqlquerystring);
 
                         
-                    ///user data found
+                        ///user data found
                         $tabledata=$returnobj->fetchAll();
 
                         foreach($tabledata AS $row){
                          ?>
 
                          <tr>
-                         <td><?php echo $row['p_name']; ?></td>
-                            <td><?php echo $row['u_name']; ?></td>
-                            <td><?php echo $row['u_email']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['address']; ?></td>
                             <td><?php echo $row['description']; ?></td>
-                            <td><?php echo $row['time']; ?></td>
+                            <td><?php echo $row['status']; ?></td>
                             <td><?php echo '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>'; ?></td>
                         </tr>
                         <?php
                     }
                   }
     ?>
-            </tbody>
             
             
-        
+         </tbody>
+            
         </table>
     
-    <footer id="footer">
+       <footer id="footer">
     <a id="icon-fb" href="#">
       <i class="s-icons fa-brands fa-facebook"></i>
     </a>

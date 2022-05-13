@@ -308,9 +308,9 @@
         <img src="img/pic/4.jpeg" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-            <p class="card-text">Click below to view our exchange offer</p>
+            <p class="card-text">Click below to request for recycle</p>
         </div>
-        <button onclick="window.location.href='#'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Exchange Offer</button>
+        <button onclick="window.location.href='request_recycle_front.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Recycling Request</button>
         </div>
     </div>
 
