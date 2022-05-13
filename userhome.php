@@ -338,7 +338,7 @@
         <div class="card-body">
             <p class="card-text">Click below to consult with plant specialist</p>
         </div>
-        <button onclick="window.location.href='#'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Consult with Specialists</button>
+        <button onclick="window.location.href='view_consult.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Consult with Specialists</button>
         </div>
     </div>
 
