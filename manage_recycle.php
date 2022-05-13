@@ -92,14 +92,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      </div>
     </form>
     
-    
-    
-    
-    
-    
-    
-    
-    
+           <table id="example" class="table table-light table-hover table-bordered pad" style="width:100%">
+        
+        <thead>
+            <tr>
+                        
+                <th>User Email</th>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+            
+       
+        <tbody>
+            
+            
+            
+            
+         </tbody>
+            
+        </table>
     
        <footer id="footer">
     <a id="icon-fb" href="#">
