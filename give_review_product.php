@@ -46,6 +46,29 @@
                     position: relative;
                     overflow: hidden;
                 }
-    </style>
     </head>
+<body><center>
+           
+      <form action="review_process.php"method="POST">
+         <div class="posts"> 
+          <br>
+          <label for="name"><b>Product Name:</b></label>
+          <input type="text" placeholder="Write product name here" id="name" name="name" style="height:30px; width:260px" />
+          <br>
+          <br>
+          <label for="review"><b>Review:</b></label>
+         <input type="text" placeholder="Write your review here" id="review" name="review" style="height:30px; width:260px" />
+          <br>
+          <br>
+           <label for="uemail"><b>Email:</b></label>
+          <input type="text" value="<?php echo $email ?>" id="uemail" name="uemail" readonly style="height:30px; width:260px" />
+          <br>
+          <br>
+         
+             <button type='submit' style="height:30px; width:200px">Enter</button>
+             </div>
+          
+    </form>
+    </center>
+</body>
 </html>
