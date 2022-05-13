@@ -46,7 +46,8 @@
                     position: relative;
                     overflow: hidden;
                 }
-    </head>
+    </style>
+</head>
 <body><center>
            
       <form action="review_process.php"method="POST">
@@ -65,8 +66,21 @@
           <br>
           <br>
          
-             <button type='submit' style="height:30px; width:200px">Enter</button>
-             </div>
+             <button type='submit' id="s" style="height:30px; width:200px">Enter</button>
+             
+              <script>
+                        let btn= document.querySelector('#s');
+                        let name;
+                        btn.addEventListener('click', function (){
+                            fetch('http://localhost/pre_final/ava_ajax.php')
+                            .then(response => response.json())
+                            .then(myObj => {
+                                name = myObj.content[0].name;
+                                alert("Are you sure to submit your review "+ name+ " ?");		
+                            })
+                        });
+                    </script>
+          </div>
           
     </form>
     </center>
