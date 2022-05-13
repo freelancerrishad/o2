@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if(mysqli_num_rows($run)>0){
       while($row = $run->fetch_assoc()){
         $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td>
-        <td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
+        <td>". '<a id = "x" href="delete_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
           $flag = 1;
         
       }
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
                 $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td>
-                <td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" "></i> Delete</a>' ."</td></tr>";
+                <td>". '<a id = "x" href="delete_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" "></i> Delete</a>' ."</td></tr>";
             }
                  
       }
