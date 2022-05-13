@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Exhcange Request</h1>
     </div>
     
-    <form class="form" action="manage.php" method="POST">
+    <form class="form" action="manage_recycle.php" method="POST">
      <div class="form-group" id="pad">
         <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
      </div>
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-     <button onclick="window.location.href='manage.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <button onclick="window.location.href='manage_recycle.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
      </div>
     </form>
     
@@ -108,7 +108,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
         <tbody>
             
-            
+             <?php
+                    
+                    if($flag = 1){
+                      $flag = 0;
+                      echo $html;
+                
+                    }
+                    if($flag1 == 1){
+                      $flag1 = 0;
+                        $conn=new PDO('mysql:host=localhost:3306;dbname=project_o2;','root','');
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                        //database code execute, default : warning generate
+                        $sqlquerystring="SELECT id, email, address, description, status FROM recycle ";
+                        $returnobj=$conn->query($sqlquerystring);
+
+                        
+                        ///user data found
+                        $tabledata=$returnobj->fetchAll();
+
+                        foreach($tabledata AS $row){
+                         ?>
+
+                         <tr>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['address']; ?></td>
+                            <td><?php echo $row['description']; ?></td>
+                            <td><?php echo $row['status']; ?></td>
+                            <td><?php echo '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>'; ?></td>
+                        </tr>
+                        <?php
+                    }
+                  }
+    ?>
             
             
          </tbody>
