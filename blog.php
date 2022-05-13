@@ -117,7 +117,18 @@ ini_set('display_errors', 0);
                 <textarea id="content" name="content" rows="4" cols="50" placeholder="Enter Blog Content" required></textarea>
 
                 <button type='submit' id="btnSubmit">Submit</button>
-                
+                <script>
+                    let btn= document.querySelector('#btnSubmit');
+                    let namee;
+                    btn.addEventListener('click', function (){
+                        fetch('http://localhost/pO2_rough/ajaxs.php')
+                        .then(response => response.json())
+                        .then(myObj => {
+                            namee = myObj.content[0].name;
+                            alert("Are you sure to enter this blog as "+ namee );		
+                        })
+                    });
+                </script>
                 <button onclick="window.location.href='adminhome.php'" type="button"><i class="fa-solid fa-house"></i> Return Home</button>
                 
 
