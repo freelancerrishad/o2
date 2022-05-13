@@ -5,7 +5,44 @@
   if($admin==null){
     header('location:login.php?id=home');
   }
+  include '_dbconnect.php';
+  $flag = 0;
+  $flag1 = 0;
+  $html = "";
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $search = $_POST['search'];
+    $cat = $_POST['cat'];
   
+    $q =  "SELECT * FROM `event` WHERE  `$cat` LIKE '%$search%';";
+    $run = mysqli_query($con, $q);
+    
+  
+    
+    if(mysqli_num_rows($run)>0){
+        while($row = $run->fetch_assoc()){
+          $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . $row["location"] . "</td><td>" . $row["e_time"] . "</td><td>". $row["details"] . "</td>
+          <td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
+            $flag = 1;
+          
+        }
+      }
+    }
+        else{
+           
+          $q =  "SELECT * FROM `event`";
+          $run = mysqli_query($con, $q);
+          $html = "";
+          if(mysqli_num_rows($run)>0){
+              while($row = $run->fetch_assoc()){
+                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . $row["location"] . "</td><td>" . $row["e_time"] . "</td><td>". $row["details"] . "</td>
+                <td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
+                 
+              }
+                   
+        }
+          $flag1 = 1;
+          
+      }
 ?>
 
 <!DOCTYPE html>
@@ -67,15 +104,15 @@
             <tr>
                         <th>Event Name</th>
                         <th>Image</th>
-                        <th>Details</th>
-                        <th>Time</th>
                         <th>Location</th>
+                        <th>Time</th>
+                        <th>Details</th>
                         <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         <?php
-                
+                echo $html;
                 ?>
         </tbody>
         </table>
