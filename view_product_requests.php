@@ -37,6 +37,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       else{
         $flag1 = 1;
       }
+
+      include '_dbconnect.php';
+      $sql = "SELECT *  FROM req_qs";
+      
+      $result = mysqli_query($con, $sql);
+      $num1 = mysqli_num_rows($result);
+      $html = "";
+      if ($num1 > 0) {
+          while ($row = $result->fetch_assoc()) {
+      
+              $html = $html  . "<tr>" .
+                  
+                  '<td><input hidden type="text" name="id" placeholder="Enter Doctor ID" value="' . $row["S_no"] . '">' . $row["User_name"] . " </td>" .
+                  "<td>" . $row["user_email"] . "</td>" .
+                  "<td>" . $row["qs"] . "</td> " .
+                 
+                  '<td>' .
+                  '<a class="btn btn-primary" href="/EduShare/req_qs_accept.php?id=' . $row["S_no"] . '">Accept</a> ' .
+                  '<a class="btn btn-danger" href="/EduShare/req_qs_delete.php?id=' . $row["S_no"] . '">Delete</a> ' .
+                  '</td>' .
+                 
+                  '</form>' .
+                  "</tr>";
+          }
+      }
       
     
 ?>

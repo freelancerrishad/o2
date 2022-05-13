@@ -22,8 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   if(mysqli_num_rows($run)>0){
       while($row = $run->fetch_assoc()){
-        $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["type"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="mycart.php?id=' . $row["id"] .'"><i class="fa-solid fa-trash-can"></i> Delete Product</a>' ."</td></tr>";
-               
+        $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td><td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
           $flag = 1;
         
       }
@@ -36,17 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="mycart.php?id=' . $row["id"] .'"><i class="fa-solid fa-trash-can"></i> Delete Product</a>' ."</td></tr>";
-               
+                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td><td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" "></i> Delete</a>' ."</td></tr>";
             }
-          
-        
+                 
       }
         $flag1 = 1;
-      }
-      
+        
+    }
     
+      
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -64,10 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
 </head>
 
 <body>
-    
+
     <?php 
     include('header4.html');
     ?>
@@ -93,8 +95,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-     <button onclick="window.location.href='product_list.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
-     </div>
+     <button id="btnSubmit"  type="submit" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+
+
+
+
+    </div>
     </form>
     
     
@@ -119,6 +125,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
         </tbody>
         </table>
+
+    
+
     
     <footer id="footer">
     <a id="icon-fb" href="#">
@@ -145,5 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
     <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      
+    
 </body>
 </html>
