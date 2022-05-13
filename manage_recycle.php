@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     <div id="cta">
-    <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Exhcange Request</h1>
+    <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Recycle Request</h1>
     </div>
     
     <form class="form" action="manage_recycle.php" method="POST">

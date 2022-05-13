@@ -133,7 +133,7 @@
         <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-user-group"></i> Customer Management</h5>
         <a href="#" class="btn btn-lg btn-block btn btn-danger downbtn2">Manage Order</a>
-        <a href="#" class="btn btn-lg btn-block btn btn-danger downbtn2">Manange Exchange Offer</a>
+        <a href="manage_recycle.php" class="btn btn-lg btn-block btn btn-danger downbtn2">Manage Recycles</a>
         </div>
         </div>
     </div>
