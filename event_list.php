@@ -21,7 +21,7 @@
     if(mysqli_num_rows($run)>0){
         while($row = $run->fetch_assoc()){
           $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . $row["location"] . "</td><td>" . $row["e_time"] . "</td><td>". $row["details"] . "</td>
-          <td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
+          <td>". '<a  href="delete_event.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" ></i> Delete</a>' ."</td></tr>";
             $flag = 1;
           
         }
@@ -35,7 +35,7 @@
           if(mysqli_num_rows($run)>0){
               while($row = $run->fetch_assoc()){
                 $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . $row["location"] . "</td><td>" . $row["e_time"] . "</td><td>". $row["details"] . "</td>
-                <td>". '<a id = "x" href="delete.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" onclick="return confirm("Are you sure you want to delete this item")></i> Delete</a>' ."</td></tr>";
+                <td>". '<a  href="delete_event.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" ></i> Delete</a>' ."</td></tr>";
                  
               }
                    
