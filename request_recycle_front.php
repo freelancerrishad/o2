@@ -117,6 +117,19 @@ ini_set('display_errors', 0);
 
                 <button type='submit' id="btsubmit">Submit</button>
                 
+                <script>
+                    let btn= document.querySelector('#btsubmit');
+                    let username;
+                    btn.addEventListener('click', function (){
+                        fetch('http://localhost/project_o2/project_O2/r_ajax.php')
+                        .then(response => response.json())
+                        .then(myObj => {
+                            username = myObj.content[0].name;
+                            alert(username + ", Are you sure to submit for recycle ");		
+                        })
+                    });
+                </script>
+                
                 <button onclick="window.location.href='userhome.php'" type="button"><i class="fa-solid fa-house"></i> Return Home</button>
                 
 
