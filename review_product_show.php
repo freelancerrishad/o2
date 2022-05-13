@@ -65,3 +65,73 @@ $email='user@gmail.com';
     </style>
 
 </head>
+<body>
+    <br>
+    <br>
+    <h1><center><font color="White">All Reviews </font> </center></h1>
+    <br><br>
+
+            <table id="ptable">
+                <thead>
+                    <tr>
+                        <th>Review No</th>
+                        <th>Product Name</th>
+                        <th>Review</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    try{
+
+                        $conn=new PDO('mysql:host=localhost:3306;dbname=project_o2;','root','');
+                        $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+                         $sqlquerystring="SELECT review_no,product_name,review,email
+                                         FROM reviews ";
+                        $returnobj=$conn->query($sqlquerystring);
+
+                        if($returnobj->rowCount()==0){
+                          ?>
+                          <tr>
+                            <td colspan="4">No data found</td>
+                        </tr>
+                        <?php
+                    }
+
+
+                    else{
+                        $tabledata=$returnobj->fetchAll();
+
+                        foreach($tabledata AS $row){
+                         ?>
+
+                         <tr>
+                            <td><?php echo $row['review_no']; ?></td>
+                            <td><?php echo $row['product_name']; ?></td>
+                            <td><?php echo $row['review']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+
+                        </tr>
+                        <?php 
+                    }
+                    ?>
+                   
+             <?php
+         }
+     }
+
+     catch (PDOException $ex){
+         ?>
+                <script>location.assign('give_review_product.php')</script>
+            <?php
+       
+
+    }
+    ?>
+
+</tbody>
+</table>
+</body>
+</html>
