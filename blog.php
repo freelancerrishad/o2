@@ -121,7 +121,7 @@ ini_set('display_errors', 0);
                     let btn= document.querySelector('#btnSubmit');
                     let namee;
                     btn.addEventListener('click', function (){
-                        fetch('http://localhost/pO2_rough/ajaxs.php')
+                        fetch('http://localhost/Project_O2/project_O2/ajaxs.php')
                         .then(response => response.json())
                         .then(myObj => {
                             namee = myObj.content[0].name;
