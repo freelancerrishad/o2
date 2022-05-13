@@ -78,7 +78,7 @@
     <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Product List</h1>
     </div>
     
-    <form class="form" action="product_list.php" method="POST">
+    <form class="form" action="event_list.php" method="POST">
      <div class="form-group" id="pad">
         <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
      </div>
@@ -94,7 +94,15 @@
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-     <button id="btnSubmit"  type="submit" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <button id="btnSubmit" onclick="window.location.href='event_list.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <script type="text/javascript">
+
+let btn= document.querySelector('#btnSubmit');
+btn.addEventListener('click', function (){
+              alert("Are you sure to see all product?" );		  
+      });
+
+</script> 
     </div>
     </form>
    
