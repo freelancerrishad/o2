@@ -114,7 +114,7 @@
         <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-clover"></i> Blog Management</h5>
         <a href="blog.php" class="btn btn-lg btn-block btn btn-secondary downbtn2">Add Blog</a>
-        <a href="#" class="btn btn-lg btn-block btn btn-secondary downbtn2">Update Blog</a>
+        <a href="update_blog.php" class="btn btn-lg btn-block btn btn-secondary downbtn2">Update Blog</a>
         </div>
         </div>
     </div>

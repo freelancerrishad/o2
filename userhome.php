@@ -350,7 +350,7 @@
         <div class="card-body">
             <p class="card-text">Click below to view our <br>blogs</p>
         </div>
-        <button onclick="window.location.href='#'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Blogs</button>
+        <button onclick="window.location.href='view_blog_list.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Blogs</button>
         </div>
     </div>
 
