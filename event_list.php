@@ -53,7 +53,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>View Product List</title>
+    <title>View Event List</title>
     <link rel = "icon" href="img/fav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
@@ -75,7 +75,7 @@
 
     
     <div id="cta">
-    <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Product List</h1>
+    <h1 class = "cta-heading"><i class="fa-solid fa-list-check"></i> View Event List</h1>
     </div>
     
     <form class="form" action="event_list.php" method="POST">
