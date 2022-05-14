@@ -84,7 +84,7 @@
         <div class="card-body">
         <h5 class="card-title"><i class="fa-brands fa-pagelines"></i> Product Management</h5>
         <a href="addproduct.php" class="btn btn-lg btn-block btn btn-success downbtn2">Add Product</a>
-        <a href="#" class="btn btn-lg btn-block btn btn-success downbtn2">Update Product</a>
+        <a href="product_list.php" class="btn btn-lg btn-block btn btn-success downbtn2">Product List</a>
         </div>
         </div>
     </div>
@@ -104,7 +104,7 @@
         <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-calendar"></i> Event Management</h5>
         <a href="event.php" class="btn btn-lg btn-block btn btn-dark downbtn2">Add Event</a>
-        <a href="#" class="btn btn-lg btn-block btn btn-dark downbtn2">Update Event</a>
+        <a href="event_list.php" class="btn btn-lg btn-block btn btn-dark downbtn2">Event List</a>
         </div>
         </div>
     </div>
