@@ -125,7 +125,7 @@ ini_set('display_errors', 0);
                         .then(response => response.json())
                         .then(myObj => {
                             username = myObj.content[0].name;
-                            alert(username + ", Are you sure to submit for recycle ");		
+                            alert(username + ", Are you sure to submit for recycle?");		
                         })
                     });
                 </script>
