@@ -12,4 +12,6 @@
     
     
     $con->close();
+header("Location:viewcart.php");
+exit();
 ?>
