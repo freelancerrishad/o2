@@ -5,3 +5,6 @@
     header('location:login.php?id=home');
   }
 ?>
+<?php
+include '_dbconnect.php';
+?>
