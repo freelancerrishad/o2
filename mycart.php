@@ -6,5 +6,19 @@
   }
 ?>
 <?php
-include '_dbconnect.php';
+  include '_dbconnect.php';
+  $queries = array();
+  parse_str($_SERVER['QUERY_STRING'], $queries);
+  $id = $queries['id'];
+  $q =  "SELECT `name`,`price`, `details` FROM `product` WHERE id = $id";
+      $run = mysqli_query($con, $q);
+      if(mysqli_num_rows($run)>0){
+          while($row = $run->fetch_assoc()){
+             $name=$row["name"];
+             $price=$row["price"];
+             $details=$row["details"];
+             
+          }
+        
+      }
 ?>
