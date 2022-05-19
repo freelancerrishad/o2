@@ -123,8 +123,8 @@
         <div class="card" style="width: 18rem;">
         <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-person"></i> Consultant Management</h5>
-        <a href="#" class="btn btn-lg btn-block btn btn-warning downbtn2">Add Consultant</a>
-        <a href="#" class="btn btn-lg btn-block btn btn-warning downbtn2">Update Consultant</a>
+        <a href="add_consult.php" class="btn btn-lg btn-block btn btn-warning downbtn2">Add Consultant</a>
+        <a href="update_consult.php" class="btn btn-lg btn-block btn btn-warning downbtn2">Update Consultant</a>
         </div>
         </div>
     </div>
