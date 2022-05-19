@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <td>". $row["address"] . "</td>
           <td>". $row["description"] . "</td>
           <td>". $row["status"] . "</td>
-          <td>". '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>' .
+          <td>". '<a href="update_recycle.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_recycle.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>' .
           "</td></tr>";
           $flag = 1;
         
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?php echo $row['address']; ?></td>
                             <td><?php echo $row['description']; ?></td>
                             <td><?php echo $row['status']; ?></td>
-                            <td><?php echo '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>'; ?></td>
+                            <td><?php echo '<a href="update_recycle.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_recycle.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>'; ?></td>
                         </tr>
                         <?php
                     }
