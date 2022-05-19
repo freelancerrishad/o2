@@ -107,7 +107,19 @@ ini_set('display_errors', 0);
                 <p>
                 
 
-                <button type='submit'>Submit</button>
+                <button type='submit' id="btnSubmit">Submit</button>
+                <script>
+                    let btn= document.querySelector('#btnSubmit');
+                    let namee;
+                    btn.addEventListener('click', function (){
+                        fetch('http://localhost/pO2_rough/ajaxs2.php')
+                        .then(response => response.json())
+                        .then(myObj => {
+                            namee = myObj.content[0].name;
+                            confirm("Are you sure to give this feedback as "+ namee +"?");		
+                        })
+                    });
+                </script>
                 <button onclick="window.location.href='userhome.php'" type="button"><i class="fa-solid fa-house"></i> Return Home</button>
             </form>
             
