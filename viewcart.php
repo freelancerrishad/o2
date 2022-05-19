@@ -12,7 +12,7 @@ $run = mysqli_query($con, $q3);
 $html = "";
 if(mysqli_num_rows($run)>0){
           while($row = $run->fetch_assoc()){
-              $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . $row["details"] . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="delete_cart.php?id=' . $row["id"] .'"><i class="fa-solid fa-bag-shopping"></i> Delete from Cart</a>' ."</td></tr>";
+              $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . $row["details"] . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>". $row["quantity"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="delete_cart.php?id=' . $row["id"] .'"><i class="fa-solid fa-trash"></i> Delete from Cart</a>' . '<button type="submit" id="' . $row["id"] .'" class="qnt btn btn-lg btn-block btn btn-outline-info id = "q_id""><i class="fa-solid fa-align-justify"></i> Quantity</button>' ." </td></tr>";
              
           }
         
@@ -48,7 +48,7 @@ if(mysqli_num_rows($run)>0){
   <h1 class = "cta-heading"><i class="fa-solid fa-spa"></i> My cart</h1>
   </div>
   
-  <form class="form" action="mycart.php" method="POST">
+  <form class="form" action="" method="POST">
    <div class="form-group" id="pad">
       <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
    </div>
@@ -78,6 +78,7 @@ if(mysqli_num_rows($run)>0){
                       <th>Name</th>
                       <th>Details</th>
                       <th>Price</th>
+                      <th>Quantity</th>
                       <th>Action</th>
           </tr>
       </thead>
@@ -90,6 +91,20 @@ if(mysqli_num_rows($run)>0){
           
       
       </table>
+      <?php
+        include '_dbconnect.php';
+        $q3 =  "SELECT SUM(price*quantity) AS value_sum FROM cart WHERE `email`='$email';";
+        $run = mysqli_query($con, $q3);
+      ?>
+      <div class="cart">
+      <center><h3 class="cart2">Total Amount ৳<?php
+       while($row = $run->fetch_assoc()) {
+        echo $row["value_sum"];
+      }
+      ?></h3></center>
+     
+      <button onclick="window.location.href='payment.php?amount='" type="button" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-hand-pointer"></i> Buy Now</button>
+   </div>
   
   <footer id="footer">
   <a id="icon-fb" href="#">
@@ -114,6 +129,21 @@ if(mysqli_num_rows($run)>0){
       $('#example').DataTable();
       } );
   </script>
+          <script>
+			      $(function () {
+            $(".qnt").click(function () {
+              
+                var q_id = $(this).attr("id");
+                
+                let todo_id = prompt("Please Enter Quantity:");
+                
+                    location.assign('show.php?id='+q_id+'&todo_id='+todo_id)
+                
+                return false;
+  });
+});
+
+	</script>
   <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
