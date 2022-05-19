@@ -42,7 +42,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 </head>
     
+    <body>
     
+    <?php 
+    include('header4.html');
+    ?>
+
+    <div id = "main">
+    <div id="cta">
+    <h1 class = "cta-heading"><i class="fa-solid fa-handshake-angle"></i> Update Consultants</h1>
+    </div>
+    
+    <form class="form" action="view_consult.php" method="POST">
+     <div class="form-group" id="pad">
+        <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
+     </div>
+     
+     
+     <div class="form-group" id="pad2">
+            <select class="form-control" name="cat">
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="designation">Designation</option>
+            <option value="whtsapp_no">Contact</option>
+        </select>
+    </div>
+    
+     <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
+     <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+     <button onclick="window.location.href='view_consult.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     </div>
+    </form>
+    
+    
+    
+    
+        <table id="example" class="table table-light table-hover table-bordered pad" style="width:100%">
+        
+        <thead>
+            <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Designation</th>
+                        <th>Contact</th>
+                        <th>Action</th>
+            </tr>
+        </thead>
+            
+        <tbody>
+                <?php
+                echo  $html
+                ?>
+            </tbody>
+            
+        </div>
+        </table>
     
     
      <footer id="footer">
