@@ -20,6 +20,7 @@
         <?php
     }
 	
-
+session_start();
+	$_SESSION['delete'] = "Successfully deleted in the Database";
 
 ?>

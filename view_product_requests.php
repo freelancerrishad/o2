@@ -44,8 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 ?>
 <?php 
-    $msg = $_SESSION['add_product'];
-    $_SESSION['add_product'] = null;
+    $msg = $_SESSION['update'];
+    $_SESSION['update'] = null;
+$msgdelete = $_SESSION['delete'];
+    $_SESSION['delete'] = null;
+   
 
 ?>
 <!DOCTYPE html>
@@ -98,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
      <button onclick="window.location.href='view_product_requests.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
-     <?php if ($msg) { ?>                
+    <?php if ($msg) { ?>                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-success" role="alert">
@@ -107,7 +110,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
 
                 </div>
-              <?php } ?> 
+              <?php } ?>
+              <?php if ($msgdelete) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo  $msgdelete ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
     </div>
     
     </form>
