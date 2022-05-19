@@ -129,6 +129,21 @@ if(mysqli_num_rows($run)>0){
       $('#example').DataTable();
       } );
   </script>
+          <script>
+			      $(function () {
+            $(".qnt").click(function () {
+              
+                var q_id = $(this).attr("id");
+                
+                let todo_id = prompt("Please Enter Quantity:");
+                
+                    location.assign('show.php?id='+q_id+'&todo_id='+todo_id)
+                
+                return false;
+  });
+});
+
+	</script>
   <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
