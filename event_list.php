@@ -21,7 +21,7 @@
     if(mysqli_num_rows($run)>0){
         while($row = $run->fetch_assoc()){
           $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . $row["location"] . "</td><td>" . $row["e_time"] . "</td><td>". $row["details"] . "</td>
-          <td>". '<a  href="delete_event.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" ></i> Delete</a>' ."</td></tr>";
+          <td>". '<a  href="update_event.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
             $flag = 1;
           
         }
@@ -35,7 +35,7 @@
           if(mysqli_num_rows($run)>0){
               while($row = $run->fetch_assoc()){
                 $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . $row["location"] . "</td><td>" . $row["e_time"] . "</td><td>". $row["details"] . "</td>
-                <td>". '<a  href="delete_event.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can" ></i> Delete</a>' ."</td></tr>";
+                <td>". '<a  href="update_event.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
                  
               }
                    
@@ -43,6 +43,14 @@
           $flag1 = 1;
           
       }
+?>
+<?php 
+    $msg = $_SESSION['update'];
+    $_SESSION['update'] = null;
+    $msgdelete = $_SESSION['delete'];
+    $_SESSION['delete'] = null;
+   
+    
 ?>
 
 <!DOCTYPE html>
@@ -95,6 +103,26 @@
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
      <button id="btnSubmit" onclick="window.location.href='event_list.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <?php if ($msg) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
+              <?php if ($msgdelete) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo  $msgdelete ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
      <script type="text/javascript">
 
 let btn= document.querySelector('#btnSubmit');
@@ -150,7 +178,18 @@ btn.addEventListener('click', function (){
     </script>
     <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      
+    <script>
+			$(function () {
+            $(document).on('click','.del', function () {
+                var del_id = $(this).attr("id");
+                var info = 'id=' + del_id;
+                if (confirm("Are You Sure?")) {
+                    location.assign('delete_event.php?id='+del_id)
+                }
+                return false;
+  });
+});
+</script> 
     
 </body>
 </html>
