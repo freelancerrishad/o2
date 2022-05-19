@@ -71,7 +71,7 @@ if ($num1 > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Update Product</title>
+    <title>Update Package</title>
     <link rel = "icon" href="img/fav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
@@ -95,18 +95,18 @@ include('header5.html');
 
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
               <div id="log-title">
-                <h3 class="cta-heading"><i class="fa-brands fa-pagelines"></i> Update Product</h3>
+                <h3 class="cta-heading"><i class="fa-brands fa-pagelines"></i> Update Package</h3>
                
               </div>
               <div class="form-group"> 
                 <input hidden type="text" name="id" value="<?php echo $id ?>">
               </div>
               <div class="form-group">
-                <label for="name">Product Name</label>
+                <label for="name">Package Name</label>
                 <input type="text" class="form-control" name="name" placeholder="Product Name" value="<?php echo $name ?>"required>
               </div>
               <div class="form-group">
-                <label for="Product Image">Product Image</label>
+                <label for="Product Image">Package Image</label>
                 <div class="row">
                   <div class="col-md-6">
                     <img src="product img/<?php echo $img ?>" width="300px" class="rounded mx-auto d-block image-preview">
@@ -118,7 +118,7 @@ include('header5.html');
                 </div>
               </div>
               <div class="form-group">
-                <label for="Product Price">Product Price</label>
+                <label for="Product Price">Package Price</label>
                 <input type="text" class="form-control" name="price" placeholder="Product Price" value="<?php echo $price ?>"required>
               </div>
               
@@ -132,7 +132,7 @@ include('header5.html');
                   </select>
               </div>
               <div class="form-group">
-              <label for="Product Details">Product Details</label>
+              <label for="Product Details">Package Details</label>
               <textarea class="form-control" name="description" rows="4" cols="50" placeholder="Enter Product Description" required><?php echo $description ?> </textarea>
               </div>
 
