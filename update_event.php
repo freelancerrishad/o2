@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $time = $_POST['time'];
  
   $description = $_POST['description'];
-  echo $id;
- echo   $name;
+;
 
       $sql = "UPDATE `event` SET `name` = '$name', `img` = '$image', `details` = '$description', `e_time` = '$time', `location` = '$location' WHERE `event`.`id` = $id;";
 
       $result = mysqli_query($con, $sql);
       session_start();
-      echo   $location;
+      $_SESSION['update'] = "Successfully updated in the Database";
+     
      header("Location: event_list.php");
       $con->close();
       exit();
