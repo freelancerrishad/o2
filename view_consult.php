@@ -22,76 +22,53 @@ if(mysqli_num_rows($run)>0){
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Consultant</title>
-  <link rel="stylesheet" href="css/userhome.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
   <link rel = "icon" href="img/fav.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/table.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <section id="title">
-    <div class="container-fluid" id="cf">
-        
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-    <div class="logo">
-      <a href="userhome.php">
-      <img class = "logo" src="img/LOGO3.png" alt="img">
-      </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+  
+  <?php 
+  include('header3.html');
+  ?>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto test">
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="userhome.php"><i class="fa-solid fa-house-user"></i> Home</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="#Sec"><i class="fa-brands fa-pagelines"></i> Plants</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="#Sec2"><i class="fa-solid fa-seedling"></i> Seeds</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="#Sec3"><i class="fa-solid fa-briefcase"></i> Other Services</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="#Sec4"><i class="fa-solid fa-u"></i> Pots</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="feedback.php"><i class="fa-solid fa-comment"></i> Give Feedback</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="rqst_product.php"><i class="fa-solid fa-list-check"></i> Request Plants</a>
-      </li>
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="mycart.php"><i class="fa-solid fa-bag-shopping"></i> My Cart</a>
-      </li>
-
-      <li class="nav-item">
-        <a id= "test2" class="nav-link" href="logout.php"><i class="fa-solid fa-user"></i> Logout</a>
-      </li>
-      
-    </ul>
-    </div>
-    </nav>
-    
-
-    <div id = "main">
-    <div id="cta">
-    <h1 class = "cta-heading"><i class="fa-solid fa-comment"></i> View Consultants</h1>
-    </div>
+  
+  <div id="cta">
+  <h1 class = "cta-heading"><i class="fa-solid fa-spa"></i> View Consultant</h1>
+  </div>
+  
+  <form class="form" action="#" method="POST">
+   <div class="form-group" id="pad">
+      <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
+   </div>
+   
+   
+   <div class="form-group" id="pad2">
+          <select class="form-control" name="cat">
+          <option value="name">Name</option>
+          <option value="designation">Designation</option>
+          <option value="specialized">Specialized</option>
+          <option value="whatsappno">WhatsApp No</option>
+          <option value="email">Email</option>
+      </select>
+  </div>
+  
+   <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
+   <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+   <button onclick="window.location.href='Flower_Plants.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+   </div>
+  </form>
     <table id="example" class="table table-light table-hover table-bordered pad" style="width:100%">
         
         <thead>
