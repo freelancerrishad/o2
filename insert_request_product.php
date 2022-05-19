@@ -12,7 +12,7 @@
         VALUES ('','$name','$image','$price','$type','$description')";
         $run = mysqli_query($con, $q);
         
-        $_SESSION['add_product'] = "Accept this product and successfully added in database";
+        $_SESSION['update'] = "Accept the product";
 
        $id = $_SESSION['request_id'];
         $_SESSION['request_id'] = null;
@@ -23,7 +23,8 @@
         header('location:view_product_requests.php');
         $con->close();
         
-        
+         
+
         
     
 ?>  
