@@ -76,6 +76,9 @@
       <li class="nav-item">
         <a id= "test2" class="nav-link" href="rqst_product.php"><i class="fa-solid fa-list-check"></i> Request Plants</a>
       </li>
+        <li class="nav-item">
+        <a id= "test2" class="nav-link" href="view_recycle_requests.php"><i class="fa-solid fa-recycle"></i> My Recycles</a>
+      </li>
       <li class="nav-item">
         <a id= "test2" class="nav-link" href="viewcart.php"><i class="fa-solid fa-bag-shopping"></i> My Cart</a>
       </li>
