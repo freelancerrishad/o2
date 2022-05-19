@@ -94,7 +94,7 @@
         <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-box"></i> Package Management</h5>
         <a href="entry_package_front.php" class="btn btn-lg btn-block btn btn-info downbtn2">Add Package</a>
-        <a href="#" class="btn btn-lg btn-block btn btn-info downbtn2">Update Package</a>
+        <a href="package_list.php" class="btn btn-lg btn-block btn btn-info downbtn2">Package List</a>
         </div>
         </div>
     </div>
