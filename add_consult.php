@@ -44,11 +44,53 @@ ini_set('display_errors', 0);
     
 ?> 
     
+    <section id="cta">
+        <form class="form" action="consult_entry.php" method="POST">
+          <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
+              <div id="log-title">
+                <h3 class="cta-heading"><i class="fa-solid fa-handshake-angle"></i> Assign Consultants</h3>
+                <?php if ($msg) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
+              </div>
+              <div class="form-group">
+                <label for="Package Name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="Email ID" required>
+              </div>
+              <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" class="form-control" name="designation" placeholder="Designation" required>
+              </div>
+              <div class="form-group">
+                <label for="specialized">Specialized In</label>
+                <input type="text" class="form-control" name="specialized" placeholder="Please enter your working field" required>
+                </div>
+              <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="text" class="form-control" name="contact" placeholder="Please enter number with WhatsApp" required>
+                </div>
+
+        
+              <button type="submit" class="btn btn-lg btn-block btn btn-success">Submit</button>
+            </div>
+          </div>
+        </form>
+</section>
     
-    
-    
-    
-    
+
     
         <footer id="footer">
     <a id="icon-fb" href="#">
