@@ -21,7 +21,7 @@
           }
         
       }
-    $q2 = "INSERT INTO cart VALUES ('', '$name', '$details','$price','$email')";
+    $q2 = "INSERT INTO cart VALUES ('', '$name', '$details','$price','$email',1)";
     $run = mysqli_query($con, $q2);
 
       header('location:viewcart.php');
