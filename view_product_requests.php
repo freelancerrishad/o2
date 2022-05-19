@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <td>". $row["u_email"] . "</td>
           <td>". $row["description"] . "</td>
           <td>". $row["time"] . "</td>
-          <td>". '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>' .
+          <td>". '<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' .
           "</td></tr>";
           $flag = 1;
         
@@ -38,32 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $flag1 = 1;
       }
 
-      include '_dbconnect.php';
-      // $sql = "SELECT *  FROM req_qs";
       
-      // $result = mysqli_query($con, $sql);
-      // $num1 = mysqli_num_rows($result);
-      // $html = "";
-      // if ($num1 > 0) {
-      //     while ($row = $result->fetch_assoc()) {
-      
-      //         $html = $html  . "<tr>" .
-                  
-      //             '<td><input hidden type="text" name="id" placeholder="Enter Doctor ID" value="' . $row["S_no"] . '">' . $row["User_name"] . " </td>" .
-      //             "<td>" . $row["user_email"] . "</td>" .
-      //             "<td>" . $row["qs"] . "</td> " .
-                 
-      //             '<td>' .
-      //             '<a class="btn btn-primary" href="/EduShare/req_qs_accept.php?id=' . $row["S_no"] . '">Accept</a> ' .
-      //             '<a class="btn btn-danger" href="/EduShare/req_qs_delete.php?id=' . $row["S_no"] . '">Delete</a> ' .
-      //             '</td>' .
-                 
-      //             '</form>' .
-      //             "</tr>";
-      //     }
-      // }
+     
       
     
+?>
+<?php 
+    $msg = $_SESSION['add_product'];
+    $_SESSION['add_product'] = null;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -115,7 +98,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
      <button onclick="window.location.href='view_product_requests.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
-     </div>
+     <?php if ($msg) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?> 
+    </div>
+    
     </form>
     
     
@@ -165,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?php echo $row['u_email']; ?></td>
                             <td><?php echo $row['description']; ?></td>
                             <td><?php echo $row['time']; ?></td>
-                            <td><?php echo '<a href="addproduct.php" class="btn btn-lg btn-block btn btn-success"><i class="fa-solid fa-plus"></i> Accept Request</a><a href="delete_req.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete Request</a>'; ?></td>
+                            <td><?php echo '<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>'; ?></td>
                         </tr>
                         <?php
                     }
@@ -202,7 +196,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
     <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+    <script>
+			$(function () {
+            $(document).on('click','.del', function () {
+                var del_id = $(this).attr("id");
+                var info = 'id=' + del_id;
+                if (confirm("Are You Sure?")) {
+                    location.assign('delete_req.php?id='+del_id)
+                }
+                return false;
+  });
+});
+</script>
+  </body>
 </html>
 <<<<<<< HEAD
 =======
