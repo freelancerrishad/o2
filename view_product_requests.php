@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <td>". $row["u_email"] . "</td>
           <td>". $row["description"] . "</td>
           <td>". $row["time"] . "</td>
-          <td>". '<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' .
+          <td>". '<a  href="accept_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' .
           "</td></tr>";
           $flag = 1;
         
@@ -159,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?php echo $row['u_email']; ?></td>
                             <td><?php echo $row['description']; ?></td>
                             <td><?php echo $row['time']; ?></td>
-                            <td><?php echo '<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>'; ?></td>
+                            <td><?php echo '<a  href="accept_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>'; ?></td>
                         </tr>
                         <?php
                     }
