@@ -16,51 +16,51 @@ include '_dbconnect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $id = $_POST['id'];
   $name = $_POST['name'];
-  $image = $_POST['image_name'];
+  $image = $_POST['image'];
   $price = $_POST['price'];
-  $type = $_POST['type'];
+ 
   $stock = $_POST['stock'];
   $description = $_POST['description'];
   //echo $id;
   
 
-      $sql = "UPDATE `product` SET `name` = '$name',`img` = '$image',`price` = '$price',`type` = '$type',`stock` = '$stock', `details` = '$description' WHERE `product`.`id` = $id;";
+      $sql = "UPDATE `package` SET `name` = '$name',`img` = '$image',`price` = '$price',`stock` = '$stock', `description` = '$description' WHERE `package`.`id` = $id;";
 
       $result = mysqli_query($con, $sql);
       session_start();
       $_SESSION['update'] = "Successfully updated in the Database";
-      
-      header("Location: product_list.php");
+      echo $update;
+      header("Location: package_list.php");
       $con->close();
       exit();
+      
       
   
 }
 
-    $queries = array();
-    parse_str($_SERVER['QUERY_STRING'], $queries);
-    $id = $queries['id'];
-    //echo $id;
-    $_SESSION['request_id'] = $id;
-    $sql = "select * FROM product WHERE id = $id";
-    $result1 = mysqli_query($con, $sql);
-    
-    $num1 = mysqli_num_rows($result1);
-    $html = "";
-    
-    if ($num1 > 0) {
-        if ($row = $result1->fetch_assoc()) {
-            $name = $row["name"];
-            $img = $row["img"];
-            $price = $row["price"];
-            $type = $row["type"];
-            $stock = $row["stock"];
-            $details= $row["details"];
-           
+$queries = array();
+parse_str($_SERVER['QUERY_STRING'], $queries);
+$id = $queries['id'];
+//echo $id;
+$_SESSION['request_id'] = $id;
+$sql = "select * FROM package WHERE id = $id";
+$result1 = mysqli_query($con, $sql);
+
+$num1 = mysqli_num_rows($result1);
+$html = "";
+
+if ($num1 > 0) {
+    if ($row = $result1->fetch_assoc()) {
+        $name = $row["name"];
+        $img = $row["img"];
+        $price = $row["price"];
+      
+        $stock = $row["stock"];
+        $description = $row["description"];
        
-        }
-    }
    
+    }
+}
     
 ?>
 <!DOCTYPE html>
@@ -90,7 +90,7 @@ include('header5.html');
     
 
 <section id="cta">
-        <form id="update_from" class="form" action="update_product.php" method="POST" novalidate>
+        <form id="update_from" class="form" action="update_package.php" method="POST" novalidate>
           <div class="row">
 
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
@@ -121,23 +121,7 @@ include('header5.html');
                 <label for="Product Price">Product Price</label>
                 <input type="text" class="form-control" name="price" placeholder="Product Price" value="<?php echo $price ?>"required>
               </div>
-              <div class="form-group">
-                  <label for="Product Type">Product Type</label>
-                  <select class="form-control" name="type">
-                    <option value="<?php echo $type?>"><?php echo $type?></option>
-                    <option value="Flower Plants">Flower Plants</option>
-                    <option value="Fruit Plants">Fruit Plants</option>
-                    <option value="Vegetable Plants">Vegetable Plants</option>
-                    <option value="Decorative Plants">Decorative Plants</option>
-                    <option value="Flower Seeds">Flower Seeds</option>
-                    <option value="Fruit Seeds">Fruit Seeds</option>
-                    <option value="Vegetable Seeds">Vegetable Seeds</option>
-                    <option value="Decorative Seeds">Decorative Seeds</option>
-                    <option value="Pots">Pots</option>
-                    <option value="Merch">Merch</option>
-                    <option value="Recycled Product">Recycled Product</option>
-                  </select>
-              </div>
+              
               <div class="form-group">
                   <label for="Product Type">Stock</label>
                   <select class="form-control" name="stock">
@@ -149,7 +133,7 @@ include('header5.html');
               </div>
               <div class="form-group">
               <label for="Product Details">Product Details</label>
-              <textarea class="form-control" name="description" rows="4" cols="50" placeholder="Enter Product Description" required><?php echo $details ?> </textarea>
+              <textarea class="form-control" name="description" rows="4" cols="50" placeholder="Enter Product Description" required><?php echo $description ?> </textarea>
               </div>
 
         
@@ -194,9 +178,7 @@ include('header5.html');
             price: {
                 required: true,
             },
-            type: {
-                required: true,
-            },
+           
             stock: {
                 required: true,
             },
@@ -214,9 +196,7 @@ include('header5.html');
             price: {
               required: "this field is required"
             },
-            type: {
-              required: "this field is required"
-            },
+            
             stock: {
               required: "this field is required"
             },
