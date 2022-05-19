@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $sql = "UPDATE `product` SET `name` = '$name',`img` = '$image',`price` = '$price',`type` = '$type',`stock` = '$stock', `details` = '$description' WHERE `product`.`id` = $id;";
 
       $result = mysqli_query($con, $sql);
-      
+      session_start();
+      $_SESSION['update'] = "Successfully updated in the Database";
       
       echo $update;
       header("Location: product_list.php");
