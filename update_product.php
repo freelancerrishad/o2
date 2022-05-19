@@ -16,7 +16,7 @@ include '_dbconnect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $id = $_POST['id'];
   $name = $_POST['name'];
-  $image = $_POST['image'];
+  $image = $_POST['image_name'];
   $price = $_POST['price'];
   $type = $_POST['type'];
   $stock = $_POST['stock'];
@@ -30,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       session_start();
       $_SESSION['update'] = "Successfully updated in the Database";
       
-      echo $update;
       header("Location: product_list.php");
       $con->close();
       exit();
@@ -91,7 +90,7 @@ include('header5.html');
     
 
 <section id="cta">
-        <form class="form" action="update_product.php" method="POST">
+        <form id="update_from" class="form" action="update_product.php" method="POST" novalidate>
           <div class="row">
 
             <div class="col-lg-12 col-md-12 col-sm-12" id=col1>
@@ -108,7 +107,15 @@ include('header5.html');
               </div>
               <div class="form-group">
                 <label for="Product Image">Product Image</label>
-                <input type="file" class="form-control" name="image" value="<?php echo $img ?>"required/> 
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="product img/<?php echo $img ?>" width="300px" class="rounded mx-auto d-block image-preview">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="file" class="form-control" name="image" _value="<?php echo $img ?>" value="<?php echo $img ?>"required/> 
+                    <input type="hidden" name="image_name" value="<?php echo $img ?>"/>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="Product Price">Product Price</label>
@@ -168,6 +175,60 @@ include('header5.html');
     </footer>
     <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      $('input[name=image]').on('change', function() {
+        var file = $('input[name=image]').get(0).files[0];
+        console.log(file);
+        var blob = URL.createObjectURL(file)
+        document.querySelector('.image-preview').src= blob;
+        $('input[name=image_name]').val(file.name);
+      });
+
+      $("#update_from").validate({
+
+        rules: {
+          name_1: {
+                required: true
+            },
+            price: {
+                required: true,
+            },
+            type: {
+                required: true,
+            },
+            stock: {
+                required: true,
+            },
+            description: {
+              required: true,
+            },
+            image: {
+              required: false
+            }
+        },
+        messages: {
+          name_1: {
+                required: "this field is required"
+            },
+            price: {
+              required: "this field is required"
+            },
+            type: {
+              required: "this field is required"
+            },
+            stock: {
+              required: "this field is required"
+            },
+            description: {
+              required: "this field is required"
+            }
+        },
+
+          
+      });
+
+    </script>
     
 </body>
 </html>
