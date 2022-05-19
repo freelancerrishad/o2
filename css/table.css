@@ -192,3 +192,15 @@
 .taka{
     display: inline;
 }
+
+.cart{
+    margin: auto;
+    padding: 0 40% 0 40%;
+    margin-bottom: 80px;
+    font-size: 1.5rem;
+}
+.cart2{
+    
+    margin-bottom: 20px;
+    
+}
