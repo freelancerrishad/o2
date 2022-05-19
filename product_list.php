@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   if(mysqli_num_rows($run)>0){
       while($row = $run->fetch_assoc()){
-        $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["type"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="delete_product.php?id=' . $row["id"] .'"><i class="fa-solid fa-trash-can"></i> Delete Product</a>' ."</td></tr>";
+        $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["type"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td>
+		<td>".'<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'. '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";</tr>";
                
           $flag = 1;
         
@@ -36,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td><td>". '<a class="btn btn-lg btn-block btn btn-outline-danger" href="delete_product.php?id=' . $row["id"] .'"><i class="fa-solid fa-trash-can"></i> Delete Product</a>' ."</td></tr>";
+                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["name"] . "</td><td>". $row["type"] . "</td><td>". $row["details"] . "</td>
+				<td>".'<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'. '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";</tr>";
                
             }
           
@@ -145,5 +147,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
     <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+ <script>
+			$(function () {
+            $(".del").click(function () {
+                var del_id = $(this).attr("id");
+                var info = 'id=' + del_id;
+                if (confirm("Are You Sure?")) {
+                    location.assign('delete_product.php?id='+del_id)
+                }
+                return false;
+  });
+});
+</script> 
+	</body>
 </html>

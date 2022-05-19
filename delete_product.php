@@ -1,17 +1,25 @@
 <?php
-    include '_dbconnect.php';
 
-    session_start();
-    
-    $queries = array();
-    parse_str($_SERVER['QUERY_STRING'], $queries);
-    $id = $queries['id'];
-    $sql = "DELETE FROM product WHERE id = $id";
-    
-    $result = mysqli_query($con, $sql);
-    
-    
-    $con->close();
-header("Location: /Project_O2/project_O2/product_list.php");
-exit();
+	$id = $_GET["id"];
+
+	try{
+        $conn=new PDO('mysql:host=localhost:3306;dbname=project_o2;','root','');
+        $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        $sqlquerystring="DELETE FROM r_product WHERE id='$id'";
+
+        $conn->exec($sqlquerystring);
+
+            ?>
+              <script>location.assign('view_product_requests.php')</script>
+            <?php
+    }
+    catch (PDOException $ex){
+        ?>
+            <script>location.assign('view_product_requests.php')</script>
+        <?php
+    }
+	
+
+
 ?>
