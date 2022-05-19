@@ -22,12 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   if(mysqli_num_rows($run)>0){
       while($row = $run->fetch_assoc()){
-
-
         $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["type"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td>
 		<td>".'<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'. '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
                
-
           $flag = 1;
         
       }
@@ -40,20 +37,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-        $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["type"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td>
+                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["type"] . "</td><td>". $row["stock"] . "</td><td>". $row["details"] . "</td>
 				<td>".'<a  href="update_product.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'. '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
                
-
             }
-                 
+          
+        
       }
         $flag1 = 1;
-        
-    }
-    
+      }
       
+    
 ?>
-
 
 <?php 
     $msg = $_SESSION['update'];
@@ -63,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -81,13 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
-
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
 </head>
 
 <body>
-
+    
     <?php 
     include('header4.html');
     ?>
@@ -113,9 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-
-    <button id="btnSubmit"  type="submit" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
-     <?php if ($msg) { ?>                
+      <button id="btnSubmit"  type="submit" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+	  <?php if ($msg) { ?>                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-success" role="alert">
@@ -135,21 +125,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 </div>
               <?php } ?>
-<script type="text/javascript">
+	  <script type="text/javascript">
 
           let btn= document.querySelector('#btnSubmit');
           btn.addEventListener('click', function (){
                         alert("Are you sure to see all product?" );		  
                 });
-
-</script> 
-
-
-    </div>
-
 	</script>
      </div>
-
     </form>
     
     
@@ -174,9 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
         </tbody>
         </table>
-
-    
-
     
     <footer id="footer">
     <a id="icon-fb" href="#">
@@ -203,14 +183,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>
     <script src="https://use.fontawesome.com/2c7ebecd35.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-      
-    
-</body>
-
  <script>
 			$(function () {
-            $(".del").click(function () {
+            $(document).on('click','.del', function () {
                 var del_id = $(this).attr("id");
                 var info = 'id=' + del_id;
                 if (confirm("Are You Sure?")) {
@@ -221,5 +196,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 });
 </script> 
 	</body>
-
 </html>
