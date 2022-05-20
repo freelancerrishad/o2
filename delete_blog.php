@@ -19,7 +19,8 @@
             <script>location.assign('update_blog.php')</script>
         <?php
     }
-	
+	 session_start();
+	$_SESSION['delete'] = "Successfully deleted in the Database";
 
 
 ?>
