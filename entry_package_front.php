@@ -80,7 +80,20 @@ ini_set('display_errors', 0);
               </div>
 
         
-              <button type="submit" class="btn btn-lg btn-block btn btn-success">Submit</button>
+              <button type="submit" id="buttonsubmit" class="btn btn-lg btn-block btn btn-success">Submit</button>
+                 
+                <script>
+                    let btn= document.querySelector('#buttonsubmit');
+                    let username;
+                    btn.addEventListener('click', function (){
+                        fetch('http://localhost/project_o2/project_O2/p_ajax.php')
+                        .then(response => response.json())
+                        .then(myObj => {
+                            username = myObj.content[0].name;
+                            confirm(username + ", Are you sure to add the package?");		
+                        })
+                    });
+                </script>
             </div>
           </div>
         </form>
