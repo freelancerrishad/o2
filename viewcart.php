@@ -4,6 +4,11 @@
   if($email==null){
     header('location:login.php?id=home');
   }
+  $msg = $_SESSION['view_cart'];
+  $_SESSION['view_cart']=null;
+  $msg1 = $_SESSION['view_cart1'];
+  $_SESSION['view_cart1']=null;
+
 ?>
 <?php
 include '_dbconnect.php';
@@ -45,10 +50,10 @@ if(mysqli_num_rows($run)>0){
 
   
   <div id="cta">
-  <h1 class = "cta-heading"><i class="fa-solid fa-spa"></i> My cart</h1>
+  <h1 class = "cta-heading"><i class="fa-solid fa-bag-shopping"></i> My cart</h1>
   </div>
   
-  <form class="form" action="" method="POST">
+  <form class="form" action="mycart.php" method="POST">
    <div class="form-group" id="pad">
       <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
    </div>
@@ -64,7 +69,7 @@ if(mysqli_num_rows($run)>0){
   
    <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
    <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-   <button onclick="window.location.href='Flower_Plants.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+   <button onclick="window.location.href='viewcart.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
    </div>
   </form>
   
@@ -91,7 +96,37 @@ if(mysqli_num_rows($run)>0){
           
       
       </table>
+      
       <?php
+    
+      
+     
+      if($msg1){?>
+
+      <div class="row" id="pad3">
+      <div class="col-md-12">
+          <div class="alert alert-success" role="alert">
+              <?php echo $msg1; ?>
+          </div>
+      </div>
+
+      </div>
+
+      <?php }
+      if($msg){?>
+
+        <div class="row" id="pad3">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                <?php echo $msg; ?>
+            </div>
+        </div>
+        
+        </div>
+  <?php }
+
+      
+      $amount = "";
         include '_dbconnect.php';
         $q3 =  "SELECT SUM(price*quantity) AS value_sum FROM cart WHERE `email`='$email';";
         $run = mysqli_query($con, $q3);
@@ -99,11 +134,12 @@ if(mysqli_num_rows($run)>0){
       <div class="cart">
       <center><h3 class="cart2">Total Amount ৳<?php
        while($row = $run->fetch_assoc()) {
-        echo $row["value_sum"];
+        $amount = $row["value_sum"];
+        echo $amount;
       }
       ?></h3></center>
      
-      <button onclick="window.location.href='payment.php?amount='" type="button" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-hand-pointer"></i> Buy Now</button>
+      <a href="payment.php?amount=<?php echo $amount?>" type="button" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-hand-pointer"></i> Buy Now</a>
    </div>
   
   <footer id="footer">
@@ -129,8 +165,8 @@ if(mysqli_num_rows($run)>0){
       $('#example').DataTable();
       } );
   </script>
-          <script>
-			      $(function () {
+        <script>
+			$(function () {
             $(".qnt").click(function () {
               
                 var q_id = $(this).attr("id");
