@@ -39,13 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
       else{
          
-        $q =  "SELECT `id`,`name`, `img`, `price`, `description`, `stock` FROM `package`";
+        $q =  "SELECT * FROM `order`";
         $run = mysqli_query($con, $q);
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-        $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . "<img src='product img/" . $row["img"] . "' width = 300px class='rounded mx-auto d-block'>" . "</td><td>" . '<h4 class="taka">৳</h4>'. $row["price"] . "</td><td>" . $row["description"] . "</td><td>". $row["stock"] . "</td>
-        <td>".'<a  href="update_package.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info">Update</a>'. '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
+        $html = $html. "<tr><td>" . $row["cus_name"] . "</td><td>" . $row["cus_email"] . "</td><td>" . $row["cus_pn"] . "</td><td>" . $row["cus_add"] . "</td><td>". $row["pro_name"] . "</td> <td>".$row["total_cost"] . "</td> <td>".$row["d_status"] . "</td> <td>".'<a  href="update_delivery.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info">Update Delivery</a>'."</td></tr>";
                
 
             }
@@ -163,12 +162,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <thead>
             <tr>
+                        <th>Customer Name</th>
+                        <th>Customer Email</th>
+                        <th>Customer Phone Number</th>
+                        <th>Customer Address</th>
                         <th>Product Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Stock</th>
-                        <th>Actions</th>
+                        <th>Total Cost</th>
+                        <th>Status</th>
+                        <th>Action</th>
             </tr>
         </thead>
         <tbody>
