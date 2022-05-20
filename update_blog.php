@@ -6,16 +6,14 @@
   }
 ?>
 <?php
-
-
-
         include '_dbconnect.php';
         $q =  "SELECT * FROM blog";
         $run = mysqli_query($con, $q);
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-                $html = $html. "<tr><td>" . $row["b_title"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["time"] . "</td><td>". '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
+                $html = $html. "<tr><td>" . $row["b_title"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["time"] . "</td><td>". $row["content"] . "</td>
+                <td>". '<a  href="update_blog2.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
                
             }
           
@@ -53,7 +51,7 @@
     <h1 class = "cta-heading"><i class="fa-solid fa-blog"></i> Update Blog</h1>
     </div>
     
-    <form class="form" action="view_feedback.php" method="POST">
+    <form class="form" action="update_blog.php" method="POST">
      <div class="form-group" id="pad">
         <input type="text" class="form-control" name="search" aria-describedby="emailHelp" placeholder="Search">
      </div>
@@ -61,10 +59,10 @@
      
      <div class="form-group" id="pad2">
             <select class="form-control" name="cat">
-            <option value="feedback">Feedback</option>
-            <option value="name">Name</option>
-            <option value="email">Email</option>
-            <option value="upload_time">Time</option>
+            <option value="b_title">Blog name</option>
+            <option value="name">User Name</option>
+            <option value="email">User Email</option>
+            <option value="time">Time</option>
         </select>
     </div>
     
@@ -81,10 +79,11 @@
         
         <thead>
             <tr>
-                        <th>Feedback</th>
-                        <th>Name</th>
-                        <th>Email</th>
+                        <th>Blog name</th>
+                        <th>User Name</th>
+                        <th>User Email</th>
                         <th>Time</th>
+                        <th>Content</th>
                         <th>Action</th>
             </tr>
         </thead>
