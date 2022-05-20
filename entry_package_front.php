@@ -86,7 +86,7 @@ ini_set('display_errors', 0);
                     let btn= document.querySelector('#buttonsubmit');
                     let username;
                     btn.addEventListener('click', function (){
-                        fetch('http://localhost/project_o2/project_O2/p_ajax.php')
+                        fetch('http://localhost/Project-O2/project_O2/p_ajax.php')
                         .then(response => response.json())
                         .then(myObj => {
                             username = myObj.content[0].name;
