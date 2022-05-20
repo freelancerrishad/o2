@@ -15,7 +15,8 @@
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["designation"] . "</td><td>" . $row["whtsapp_no"] . "</td><td>". '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
+                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["designation"] . "</td><td>". $row["specialized"] . "</td><td>" . $row["whtsapp_no"] . "</td>
+                <td>". '<a  href="update_consult2.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
                
             }
           
@@ -84,6 +85,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Designation</th>
+                        <th>Specialized</th>
                         <th>Contact</th>
                         <th>Action</th>
             </tr>
