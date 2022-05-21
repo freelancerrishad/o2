@@ -15,13 +15,23 @@
         $html = "";
         if(mysqli_num_rows($run)>0){
             while($row = $run->fetch_assoc()){
-                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["designation"] . "</td><td>" . $row["whtsapp_no"] . "</td><td>". '<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
+                $html = $html. "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". $row["designation"] . "</td><td>". $row["specialized"] . "</td><td>" . $row["whtsapp_no"] . "</td>
+                <td>". '<a  href="update_consult2.php?id= '.$row['id'].'" class="btn btn-lg btn-block btn btn-outline-info"> Update</a>'.'<button type="submit" id="' . $row["id"] .'" class="del btn btn-outline-danger">Delete</button>' ."</td></tr>";
                
             }
           
           }
         
 ?>
+<?php 
+    $msg = $_SESSION['update'];
+    $_SESSION['update'] = null;
+    $msgdelete = $_SESSION['delete'];
+    $_SESSION['delete'] = null;
+   
+    
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -70,7 +80,35 @@
     
      <div class="col-lg-12 col-md-12 col-sm-12" id = "pad3">
      <button type="submit" class="btn btn-lg btn-block btn-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-     <button onclick="window.location.href='view_consult.php'" type="button" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <button id="btnSubmit"  type="submit" class="btn btn-lg btn-block btn-info"><i class="fa-solid fa-list"></i> See All</button>
+     <?php if ($msg) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
+              <?php if ($msgdelete) { ?>                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo  $msgdelete ?>
+                        </div>
+                    </div>
+
+                </div>
+              <?php } ?>
+<script type="text/javascript">
+
+          let btn= document.querySelector('#btnSubmit');
+          btn.addEventListener('click', function (){
+                        alert("Are you sure to see all product?" );		  
+                });
+
+</script> 
      </div>
     </form>
     
@@ -84,6 +122,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Designation</th>
+                        <th>Specialized</th>
                         <th>Contact</th>
                         <th>Action</th>
             </tr>
