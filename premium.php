@@ -1,10 +1,15 @@
+<?php
+ini_set('error_reporting', 0);
+ini_set('display_errors', 0);
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <title>Project O2</title>
-  <link rel="stylesheet" href="css/styels.css">
+  <link rel="stylesheet" href="css/styels2.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
   <link rel = "icon" href="img/fav.png">
@@ -15,103 +20,12 @@
 </head>
 
 <body>
-  <section id="title">
-    <div class="container-fluid" id="cf">
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" id="navid">
-      <div class="logo2">
-        <img class = "logo2" src="img/LOGO2.png" alt="img">
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#title"><i class="fa-solid fa-house-user"></i> Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#pricing"><i class="fa-solid fa-money-check-dollar"></i> Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cta"><i class="fa-solid fa-download"></i> Download</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="view.php"><i class="fa-brands fa-pagelines"></i> Products</a>
-           </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.php?id=home"><i class="fa-solid fa-user"></i> Login</a>
-            </li>
-        </ul>
-        </div>
-    </nav>
 
-    <!-- Title -->
-
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6">
-      <h1 class="top">Let's Make Our Planet Green.</h1>
-      <button type="button"class="btn btn-light btn-lg downbtn"><i class="fa-brands fa-apple"></i> Download</button>
-      <button type="button"class="btn btn-outline-light btn-lg downbtn"><i class="fa-brands fa-google-play"></i> Download</button>
-      </div>
-    
-      <div class="col-lg-6 col-md-6 col-sm-6">
-      <img class="img1" src="img/Untitled-1.png" alt="iphone-mockup">
-      </div>
-    </div>
-  </div>
-  </section>
-
-
-  <!-- Features -->
-
-  <section id="features">
-  <div class="row">
-    <div class="f-box col-lg-6 col-md-6 col-sm-6">
-      <i class="fa-solid fa-dollar fa-4x ic"></i>
-      <h3>Donation</h3>
-      <p>We donate 1% of our revenue to make our planet green</p>
-    </div>
-
-    <div class="f-box col-lg-6 col-md-6 col-sm-6">
-      <i class="fa-brands fa-pagelines fa-5x ic"></i>
-      <h3>10000+ Products
-      </h3>
-      <p>We have all the products you will need</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="f-box col-lg-6 col-md-6 col-sm-6">
-      <i class="fa-brands fa-rocketchat fa-4x ic"></i>
-      <h3>Live Chat</h3>
-      <p>Connect with us with any of your problem</p>
-   </div>
-
-   <div class="f-box col-lg-6 col-md-6 col-sm-6">
-    <i class="fa-solid fa-list-check fa-4x ic"></i>
-    <h3>Request New Plants</h3>
-    <p>We will provide plants from your needs</p>
-   </div>
-  </div>
-
-  </section>
-
-  
-
-
-  <!-- Call to Action -->
-
-  <section id="cta">
-
-    <h3 class="cta-heading">DOWNLOAD OUR APP</h3>
-    <button type="button"class="btn btn-light btn-lg downbtn2"><i class="fa-brands fa-apple"></i> Download</button>
-    <button type="button"class="btn btn-outline-light btn-lg downbtn2"><i class="fa-brands fa-google-play"></i> Download</button>
-
-  </section>
 
   <!-- Pricing -->
-
+  
   <section id="pricing">
+  <img class = "size" src="img/LOGO.png" alt="img">
     <h2>A Plan Every Person Needs</h2>
     <p>Simple and affordable price plan for you.</p>
 
@@ -126,11 +40,44 @@
             <p><i class="fa-solid fa-check"></i> Unlimited Contacts of Plant Specialist</p>
             <p><i class="fa-solid fa-check"></i> 24 Hour Support</p>
             <p><i class="fa-solid fa-check"></i> Connect with them via Whatsapp</p>
-          <button onclick="window.location.href='signup.php?id=home'" class="btn btn-lg btn-block btn-outline-dark" type="button">Sign Up</button>
+          <button onclick="window.location.href='payment2.php?amount=99'" class="btn btn-lg btn-block btn-outline-dark" type="button">Premium Membership</button>
+          <button onclick="window.location.href='userhome.php?id=home'" class="btn btn-lg btn-block btn-dark" type="button">Return Home</button>
         </div>
       </div>
     </div>
   </div>
+
+  <?php
+   session_start();
+    $msg = $_SESSION['view_cart'];
+    $_SESSION['view_cart']=null;
+    $msg1 = $_SESSION['view_cart1'];
+    $_SESSION['view_cart1']=null;
+      
+     
+    if($msg1){?>
+
+    <div class="row" id="pad3">
+    <div class="col-md-12">
+        <div class="alert alert-success" role="alert">
+            <?php echo $msg1; ?>
+        </div>
+    </div>
+
+    </div>
+
+    <?php }
+    if($msg){?>
+
+      <div class="row" id="pad3">
+      <div class="col-md-12">
+          <div class="alert alert-danger" role="alert">
+              <?php echo $msg; ?>
+          </div>
+      </div>
+      
+      </div>
+<?php }?>
 
   </section>
 

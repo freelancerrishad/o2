@@ -132,7 +132,7 @@
         <div class="card" style="width: 18rem;">
         <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-user-group"></i> Customer Management</h5>
-        <a href="#" class="btn btn-lg btn-block btn btn-danger downbtn2">Manage Order</a>
+        <a href="manage_order.php" class="btn btn-lg btn-block btn btn-danger downbtn2">Manage Order</a>
         <a href="manage_recycle.php" class="btn btn-lg btn-block btn btn-danger downbtn2">Manage Recycles</a>
         </div>
         </div>
@@ -140,17 +140,8 @@
     <div class="p-col col-lg-4 col-md-12 col-sm-12">
         
     </div>
-    <div class="p-col col-lg-4 col-md-12 col-sm-12">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-        <h5 class="card-title"><i class="fa-solid fa-star"></i><br>Premium Account Authentication</h5>
-        <a href="#" class="btn btn-lg btn-block btn btn-primary downbtn2">Authenticate</a>
-        </div>
-        </div>
-    </div>
-    <div class="p-col col-lg-4 col-md-12 col-sm-12">
-        
-    </div>
+    
+   
     
 
   </div>

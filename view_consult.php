@@ -45,7 +45,7 @@ if(mysqli_num_rows($run)>0){
 
   
   <div id="cta">
-  <h1 class = "cta-heading"><i class="fa-solid fa-spa"></i> View Consultant</h1>
+  <h1 class = "cta-heading"><i class="fa-solid fa-person"></i> View Consultant</h1>
   </div>
   
   <form class="form" action="#" method="POST">

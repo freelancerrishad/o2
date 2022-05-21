@@ -90,7 +90,7 @@
     color: #42B071;
     padding: 7% 15%;
     text-align: center;
-    padding-bottom: 0;
+    padding-bottom: 100px;
 }
 .cta-heading{
     font-family: 'Montserrat', sans-serif;
@@ -98,7 +98,10 @@
     line-height: 1.5;
 }
 .downbtn2{
-    margin: 5% 1%;
+    margin: 2% 1%;
+}
+.downbtn3{
+    margin-top: 20px;
 }
 .logos1{
     width: 145px;

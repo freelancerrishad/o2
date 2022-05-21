@@ -95,8 +95,11 @@
     <section id="cta">
 
         <h3 class="cta-heading">WELCOME PLANT LOVERS</h3>
+        
         <button type="button"class="btn btn-success btn-lg downbtn2"><i class="fa-brands fa-apple"></i> Download</button>
         <button type="button"class="btn btn-outline-success btn-lg downbtn2"><i class="fa-brands fa-google-play"></i> Download</button>
+        <button onclick="window.location.href='premium.php'" type="button"class="btn btn-outline-dark btn-lg downbtn2"><i class="fa-solid fa-star"></i> Premium Account</button>
+        
 
         
     </section>
@@ -333,6 +336,19 @@
         
     </div>
 
+    <?php
+        include '_dbconnect.php';
+        $q3 =  "SELECT `premium` FROM `user` WHERE email = '$email';";
+        $pre="";
+        $run4 = mysqli_query($con, $q3);
+        if(mysqli_num_rows($run4)>0){
+          while($row = $run4->fetch_assoc()){
+          $pre = $row['premium'];
+          }
+        }
+              
+     ?>
+
     <div class="p-col col-lg-3 col-md-12 col-sm-12">
         <div class="card" style="width: 18rem;">
         <div class="inner">
@@ -341,8 +357,16 @@
         <div class="card-body">
             <p class="card-text">Click below to consult with plant specialist</p>
         </div>
+        <?php
+        if($pre == 'premium'){ ?>
         <button onclick="window.location.href='view_consult.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Consult with Specialists</button>
-        </div>
+        <?php }
+        else{?>
+        
+        
+        <button onclick="window.location.href='premium.php'" type="button" class="CA btn btn-lg btn-block btn btn-outline-success">Consult with Specialists</button>
+        <?php }?>
+      </div>
     </div>
 
     <div class="p-col col-lg-3 col-md-12 col-sm-12">
