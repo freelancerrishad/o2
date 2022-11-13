@@ -8,7 +8,7 @@
         $description = $_POST['description'];
         
         
-        $q =  "INSERT INTO `event`(`id`, `name`, `details`, `e_time`, `location`, `img`) VALUES ('','$name','$description','$time','$location','$image');";
+        $q =  "INSERT INTO `event`(`id`, `name`, `details`, `e_time`, `location`) VALUES ('','$name','$description','$time','$location');";
         $run = mysqli_query($con, $q);
         /*if (mysqli_query($con, $q)) {
             echo "Database created successfully with the name newDB";
@@ -20,6 +20,8 @@
         $_SESSION['add_event'] = "Successfully Added in the Database";
         header('location:event.php');
         $con->close();
+
+        
         
         
     

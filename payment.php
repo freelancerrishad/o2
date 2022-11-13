@@ -24,8 +24,8 @@ $post_data['store_passwd'] = "proje628699bb91afa@ssl";
 $post_data['total_amount'] = $amount;
 $post_data['currency'] = "BDT";
 $post_data['tran_id'] = "SSLCZ_TEST_".uniqid();
-$post_data['success_url'] = "http://localhost/Project-O2/project_o2/confirm.php?email=$email&cost=$amount";
-$post_data['fail_url'] = "http://localhost/Project-O2/project_o2/fail.php?email=$email&cost=$amount";
+$post_data['success_url'] = "http://localhost/o2/confirm.php?email=$email&cost=$amount";
+$post_data['fail_url'] = "http://localhost/o2/fail.php?email=$email&cost=$amount";
 $post_data['cancel_url'] = "http://localhost/new_sslcz_gw/cancel.php";
 # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
 

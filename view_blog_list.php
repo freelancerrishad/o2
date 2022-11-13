@@ -81,7 +81,7 @@
         
         <thead>
             <tr>
-                        <th>Feedback</th>
+                        <th>Bkog type</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Time</th>

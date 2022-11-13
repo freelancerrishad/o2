@@ -61,10 +61,7 @@ ini_set('display_errors', 0);
                 <label for="name">Event Name</label>
                 <input type="text" class="form-control" name="name" placeholder="Event Name" required>
               </div>
-              <div class="form-group">
-                <label for="Event Image">Event Image</label>
-                <input type="file" class="form-control" name="image" required>
-              </div>
+            
               <div class="form-group">
                 <label for="Event Location">Event Location</label>
                 <input type="text" class="form-control" name="location" placeholder="Event Location" required>

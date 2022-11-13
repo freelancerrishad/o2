@@ -22,58 +22,7 @@
 </head>
 
 <body>
-  <section id="title">
-    <div class="container-fluid" id="cf">
-        
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
-    <div class="logo">
-      <a href="userhome.php">
-      <img class = "logo" src="img/LOGO3.png" alt="img">
-      </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="adminhome.php"><i class="fa-solid fa-house-user"></i> Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa-solid fa-dollar fa-ic"></i> Donation Management</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="view_feedback.php"><i class="fa-solid fa-comment"></i> View Feedback</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="view_product_requests.php"><i class="fa-solid fa-list-check"></i> Requested Plants</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://dashboard.tawk.to/#/dashboard/620fecc01ffac05b1d7a99a7"><i class ="fa-brands fa-rocketchat"></i> Live Chat</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="create_admin.php"><i class="fa-solid fa-address-book"></i> Create New Admin</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="logout.php"><i class="fa-solid fa-user"></i> Logout</a>
-      </li>
-      
-    </ul>
-    </div>
-    </nav>
-    
-    
-    <section id="cta">
-        <h3 class="cta-heading">WELCOME ADMIN</h3>
-        
-    </section>
-    </div>
-    
-  </section>
-
+    <?php include 'header3.html' ?>
   <section id="Sec">
     
 

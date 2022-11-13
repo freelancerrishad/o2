@@ -21,6 +21,8 @@
         }       
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
 
@@ -35,6 +37,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    p{
+      color: orange;
+    }
+  </style>
 </head>
 
 <body>
@@ -76,9 +84,12 @@
       <li class="nav-item">
         <a id= "test2" class="nav-link" href="rqst_product.php"><i class="fa-solid fa-list-check"></i> Request Plants</a>
       </li>
-        <li class="nav-item">
-        <a id= "test2" class="nav-link" href="view_recycle_requests.php"><i class="fa-solid fa-recycle"></i> My Recycles</a>
-      </li>
+        <!-- <li class="nav-item">
+        <a id= "test2" class="nav-link" href="Recycled_Product.php"><i class="fa-solid fa-recycle"></i> My Recycles</a>
+      </li> -->
+      <li class="nav-item">
+          <a id= "test2" class="nav-link" href="suggetion.php"><i class="fa-solid fa-bag-shopping">Suggetion</i></a>
+        </li>
       <li class="nav-item">
         <a id= "test2" class="nav-link" href="viewcart.php"><i class="fa-solid fa-bag-shopping"></i> My Cart</a>
       </li>
@@ -92,31 +103,34 @@
     </nav>
     
     
-    <section id="cta">
-
-        <h3 class="cta-heading">WELCOME PLANT LOVERS</h3>
-        
-        <button type="button"class="btn btn-success btn-lg downbtn2"><i class="fa-brands fa-apple"></i> Download</button>
-        <button type="button"class="btn btn-outline-success btn-lg downbtn2"><i class="fa-brands fa-google-play"></i> Download</button>
-        <button onclick="window.location.href='premium.php'" type="button"class="btn btn-outline-dark btn-lg downbtn2"><i class="fa-solid fa-star"></i> Premium Account</button>
-        
-
-        
-    </section>
+ 
     
     </div>
   </section>
 
   
 <section id="cta2">
-
-<h3 class="cta2-heading">TOTAL DONATION <em class="yel">৳0</em><br>FROM OUR <em class="red">1%</em> OF SELLING PRICE</h3>
+<?php
+        include '_dbconnect.php';
+        
+        $q9 =  "SELECT SUM(total_cost)*0.1 as dataper FROM `order`;";
+        $run9 = mysqli_query($con, $q9);
+        if(mysqli_num_rows($run9)>0){
+          while($row = $run9->fetch_assoc()){
+          $oneper = $row['dataper'];
+          
+          }
+        }
+              
+?>
+<h3 class="cta2-heading">TOTAL DONATION <em class="yel">৳<?php echo $oneper; ?><br>FROM OUR <em class="red">1%</em> OF SELLING PRICE</h3>
 
 </section>
 
 <section id="event">
 <h2>Events</h2>
 <p>Find our upcoming events where we donate free plants</p>
+
 <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" interval= "1000">
   
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -124,11 +138,12 @@
   
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="event img/<?php echo $first_img; ?>" alt="First slide">
+      <img class="d-block w-100" src="event img/2.jpg" alt="First slide">
+      
       <div class="carousel-caption d-none d-md-block">
         <h5><?php echo $first_name; ?></h5>
         <p><i class="fa-solid fa-calendar"></i> <?php echo date('h:i:s a, m/d/Y', strtotime($first_time));?> &nbsp <i class="fa-solid fa-location-dot"></i> <?php echo $first_loc; ?><br><br><?php echo $first_det; ?></p>
-        <button type="submit" class="CA btn btn-lg btn-block btn btn-light"><i class="fa-solid fa-thumbs-up"></i> Going</button>
+        <a  href="joining_event.php?id=<?php echo $first_id?>" class="btn btn-lg btn-block btn btn-outline-light"> Going</a>
       </div>
     </div>
     <?php
@@ -142,7 +157,7 @@
       <div class="carousel-caption d-none d-md-block">
         <h5><?php echo $row['name'];?></h5>
         <p><i class="fa-solid fa-calendar"></i> <?php echo date('h:i:s a, m/d/Y', strtotime($row['e_time']));?> &nbsp <i class="fa-solid fa-location-dot"></i> <?php echo $row['location'];?><br><br><?php echo $row['details'];?></p>
-        <button type="submit" class="CA btn btn-lg btn-block btn btn-light"><i class="fa-solid fa-thumbs-up"></i> Going</button>
+        <a  href="joining_event.php?id= <?php echo $row['id']?>" class="btn btn-lg btn-block btn btn-outline-light"> Going</a>
       </div>
     </div>
     <?php
